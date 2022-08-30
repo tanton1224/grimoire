@@ -13,6 +13,3 @@ def get_user_info(user_id):
     user = User.query.get(user_id)
 
     return user.to_dict()
-
-def test():
-    pass
