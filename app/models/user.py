@@ -31,5 +31,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'profile_image_url': self.profile_image_url
+            'profile_image_url': self.profile_image_url,
+            'decks': [deck.to_dict() for deck in self.decks],
+            'spellcards': [spellcard.to_dict() for spellcard in self.spellcards],
         }

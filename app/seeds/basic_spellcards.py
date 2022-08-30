@@ -283,6 +283,375 @@ def seed_basic_spellcards():
         school='transmutation',
         classes='bard,sorcerer,wizard'
     )
+    spell011 = Spellcard(
+        name='Antilife Shell',
+        description="""A shimmering barrier extends out from you in a 10-foot radius and moves
+        with you, remaining centered on you and hedging out creatures other than undead and
+        constructs. The barrier lasts for the duration.
+        The barrier prevents an affected creature from passing or reaching through. An
+        affected creature can cast spells or make attacks with ranged or reach weapons
+        through the barrier.
+        If you move so that an affected creature is forced to pass through the barrier,
+        the spell ends.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=5,
+        range='Self (10-foot radius)',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='Concentration, Up to 1 hour',
+        concentration=True,
+        casting_time='1 action',
+        school='abjuration',
+        classes='druid'
+    )
+    spell012 = Spellcard(
+        name='Antimagic Field',
+        description="""A 10-foot-radius invisible sphere of antimagic surrounds you. This area
+        is divorced from the magical energy that suffuses the multiverse. Within the sphere,
+        spells can’t be cast, summoned creatures disappear, and even magic items become
+        mundane. Until the spell ends, the sphere moves with you, centered on you.
+        Spells and other magical effects, except those created by an artifact or a deity,
+        are suppressed in the sphere and can’t protrude into it. A slot expended to cast a
+        suppressed spell is consumed. While an effect is suppressed, it doesn’t function, but
+        the time it spends suppressed counts against its duration.
+        Targeted Effects. Spells and other magical effects, such as magic missile and charm
+        person, that target a creature or an object in the sphere have no effect on that
+        target.
+        Areas of Magic. The area of another spell or magical effect, such as fireball, can’t
+        extend into the sphere. If the sphere overlaps an area of magic, the part of the area
+        that is covered by the sphere is suppressed. For example, the flames created by a wall
+        of fire are suppressed within the sphere, creating a gap in the wall if the overlap is
+        large enough.
+        Spells. Any active spell or other magical effect on a creature or an object in the
+        sphere is suppressed while the creature or object is in it.
+        Magic Items. The properties and powers of magic items are suppressed in the sphere.
+        For example, a +1 longsword in the sphere functions as a nonmagical longsword.
+        A magic weapon’s properties and powers are suppressed if it is used against a target
+        in the sphere or wielded by an attacker in the sphere. If a magic weapon or a piece of
+        magic ammunition fully leaves the sphere (for example, if you fire a magic arrow or
+        throw a magic spear at a target outside the sphere), the magic of the item ceases to
+        be suppressed as soon as it exits.
+        Magical Travel. Teleportation and planar travel fail to work in the sphere, whether
+        the sphere is the destination or the departure point for such magical travel. A portal
+        to another location, world, or plane of existence, as well as an opening to an
+        extradimensional space such as that created by the rope trick spell, temporarily
+        closes while in the sphere.
+        Creatures and Objects. A creature or object summoned or created by magic temporarily
+        winks out of existence in the sphere. Such a creature instantly reappears once the
+        space the creature occupied is no longer within the sphere.
+        Dispel Magic. Spells and magical effects such as dispel magic have no effect on the
+        sphere. Likewise, the spheres created by different antimagic field spells don’t
+        nullify each other.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=8,
+        range='Self (10-foot radius sphere)',
+        verbal=True,
+        somatic=True,
+        material="A pinch of iron or iron fillings",
+        ritual=False,
+        duration='Concentration, Up to 1 hour',
+        concentration=True,
+        casting_time='1 action',
+        school='abjuration',
+        classes='cleric,wizard'
+    )
+    spell013 = Spellcard(
+        name='Antipathy Sympathy',
+        description="""This spell attracts or repels creatures of your choice. You target
+        something within range, either a Huge or smaller object or creature or an area that is
+        no larger than a 200-foot cube. Then specify a kind of intelligent creature, such as
+        red dragons, goblins, or vampires. You invest the target with an aura that either
+        attracts or repels the specified creatures for the duration. Choose antipathy or
+        sympathy as the aura’s effect.
+        Antipathy. The enchantment causes creatures of the kind you designated to feel an
+        intense urge to leave the area and avoid the target. When such a creature can see
+        the target or comes within 60 feet of it, the creature must succeed on a Wisdom
+        saving throw or become frightened. The creature remains frightened while it can see
+        the target or is within 60 feet of it. While frightened by the target, the creature
+        must use its movement to move to the nearest safe spot from which it can’t see the
+        target. If the creature moves more than 60 feet from the target and can’t see it, the
+        creature is no longer frightened, but the creature becomes frightened again if it
+        regains sight of the target or moves within 60 feet of it.
+        Sympathy. The enchantment causes the specified creatures to feel an intense urge to
+        approach the target while within 60 feet of it or able to see it. When such a
+        creature can see the target or comes within 60 feet of it, the creature must succeed
+        on a Wisdom saving throw or use its movement on each of its turns to enter the area
+        or move within reach of the target. When the creature has done so, it can’t willingly
+        move away from the target.
+        If the target damages or otherwise harms an affected creature, the affected creature
+        can make a Wisdom saving throw to end the effect, as described below.
+        Ending the Effect. If an affected creature ends its turn while not within 60 feet of
+        the target or able to see it, the creature makes a Wisdom saving throw. On a
+        successful save, the creature is no longer affected by the target and recognizes the
+        feeling of repugnance or attraction as magical. In addition, a creature affected by
+        the spell is allowed another Wisdom saving throw every 24 hours while the spell
+        persists.
+        A creature that successfully saves against this effect is immune to it for 1 minute,
+        after which time it can be affected again.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=8,
+        range='60 feet',
+        verbal=True,
+        somatic=True,
+        material="""Either a lump of alum soaked in vinegar for the antipathy effect or a drop
+        of honey for the sympathy effect""",
+        ritual=False,
+        duration='10 days',
+        concentration=False,
+        casting_time='1 hour',
+        school='enchantment',
+        classes='druid,wizard'
+    )
+    spell014 = Spellcard(
+        name='Arcane Eye',
+        description="""You create an invisible, magical eye within range that hovers in the
+        air for the duration.
+        You mentally receive visual information from the eye, which has normal vision and
+        darkvision out to 30 feet. The eye can look in every direction.
+        As an action, you can move the eye up to 30 feet in any direction. There is no limit
+        to how far away from you the eye can move, but it can’t enter another plane of
+        existence.
+        A solid barrier blocks the eye’s movement, but the eye can pass through an opening
+        as small as 1 inch in diameter.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=4,
+        range='30 feet',
+        verbal=True,
+        somatic=True,
+        material="A bit of bat fur",
+        ritual=False,
+        duration='Concentration, Up to 1 hour',
+        concentration=True,
+        casting_time='1 action',
+        school='divination',
+        classes='wizard'
+    )
+    spell015 = Spellcard(
+        name='Arcane Hand',
+        description="""You create a Large hand of shimmering, translucent force in an
+        unoccupied space that you can see within range. The hand lasts for the spell’s
+        duration, and it moves at your command, mimicking the movements of your own hand.
+        The hand is an object that has AC 20 and hit points equal to your hit point maximum.
+        If it drops to 0 hit points, the spell ends. It has a Strength of 26 (+8) and a
+        Dexterity of 10 (+0). The hand doesn’t fill its space.
+        When you cast the spell and as a bonus action on your subsequent turns, you can move
+        the hand up to 60 feet and then cause one of the following effects with it.
+        Clenched Fist. The hand strikes one creature or object within 5 feet of it. Make a
+        melee spell attack for the hand using your game statistics. On a hit, the target takes
+        4d8 force damage.
+        Forceful Hand. The hand attempts to push a creature within 5 feet of it in a direction
+        you choose. Make a check with the hand’s Strength contested by the Strength
+        (Athletics) check of the target. If the target is Medium or smaller, you have
+        advantage on the check. If you succeed, the hand pushes the target up to 5 feet plus
+        a number of feet equal to five times your spellcasting ability modifier. The hand
+        moves with the target to remain within 5 feet of it.
+        Grasping Hand. The hand attempts to grapple a Huge or smaller creature within 5 feet
+        of it. You use the hand’s Strength score to resolve the grapple. If the target is
+        Medium or smaller, you have advantage on the check. While the hand is grappling the
+        target, you can use a bonus action to have the hand crush it. When you do so, the
+        target takes bludgeoning damage equal to 2d6 + your spellcasting ability modifier.
+        Interposing Hand. The hand interposes itself between you and a creature you choose
+        until you give the hand a different command. The hand moves to stay between you and
+        the target, providing you with half cover against the target. The target can’t move
+        through the hand’s space if its Strength score is less than or equal to the hand’s
+        Strength score. If its Strength score is higher than the hand’s Strength score, the
+        target can move toward you through the hand’s space, but that space is difficult
+        terrain for the target.
+        At Higher Levels. When you cast this spell using a spell slot of 6th level or higher,
+        the damage from the clenched fist option increases by 2d8 and the damage from the
+        grasping hand increases by 2d6 for each slot level above 5th.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=5,
+        range='120 feet',
+        verbal=True,
+        somatic=True,
+        material="An eggshell and a snakeskin glove",
+        ritual=False,
+        duration='Concentration, Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='evocation',
+        classes='wizard'
+    )
+    spell016 = Spellcard(
+        name='Arcane Lock',
+        description="""You touch a closed door, window, gate, chest, or other entryway, and
+        it becomes locked for the duration. You and the creatures you designate when you
+        cast this spell can open the object normally. You can also set a password that, when
+        spoken within 5 feet of the object, suppresses this spell for 1 minute. Otherwise,
+        it is impassable until it is broken or the spell is dispelled or suppressed. Casting
+        knock on the object suppresses arcane lock for 10 minutes.
+        While affected by this spell, the object is more difficult to break or force open;
+        the DC to break it or pick any locks on it increases by 10.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=2,
+        range='Touch',
+        verbal=True,
+        somatic=True,
+        material="Gold dust worth at least 25 gp, which the spell consumes",
+        ritual=False,
+        duration='Until dispelled',
+        concentration=False,
+        casting_time='1 action',
+        school='abjuration',
+        classes='wizard'
+    )
+    spell017 = Spellcard(
+        name='Arcane Sword',
+        description="""You create a sword-shaped plane of force that hovers within range.
+        It lasts for the duration.
+        When the sword appears, you make a melee spell attack against a target of your choice
+        within 5 feet of the sword. On a hit, the target takes 3d10 force damage. Until the
+        spell ends, you can use a bonus action on each of your turns to move the sword up to
+        20 feet to a spot you can see and repeat this attack against the same target or a
+        different one.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=7,
+        range='60 feet',
+        verbal=True,
+        somatic=True,
+        material="""A miniature platinum sword with a grip and pommel of copper and zinc, worth
+        250 gp""",
+        ritual=False,
+        duration='Concentration, Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='evocation',
+        classes='bard,wizard'
+    )
+    spell018 = Spellcard(
+        name="Arcanist's Magic Aura",
+        description="""You place an illusion on a creature or an object you touch so that
+        divination spells reveal false information about it. The target can be a willing
+        creature or an object that isn’t being carried or worn by another creature.
+        When you cast the spell, choose one or both of the following effects. The effect
+        lasts for the duration. If you cast this spell on the same creature or object every
+        day for 30 days, placing the same effect on it each time, the illusion lasts until it
+        is dispelled.
+        False Aura. You change the way the target appears to spells and magical effects, such
+        as detect magic, that detect magical auras. You can make a nonmagical object appear
+        magical, a magical object appear nonmagical, or change the object’s magical aura so
+        that it appears to belong to a specific school of magic that you choose. When you use
+        this effect on an object, you can make the false magic apparent to any creature that
+        handles the item.
+        Mask. You change the way the target appears to spells and magical effects that detect
+        creature types, such as a paladin’s Divine Sense or the trigger of a symbol spell.
+        You choose a creature type and other spells and magical effects treat the target as
+        if it were a creature of that type or of that alignment.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=2,
+        range='Touch',
+        verbal=True,
+        somatic=True,
+        material="A small square of silk",
+        ritual=False,
+        duration='24 hours',
+        concentration=False,
+        casting_time='1 action',
+        school='illusion',
+        classes='wizard'
+    )
+    spell019 = Spellcard(
+        name='Astral Projection',
+        description="""You and up to eight willing creatures within range project your astral
+        bodies into the Astral Plane (the spell fails and the casting is wasted if you are
+        already on that plane). The material body you leave behind is unconscious and in a
+        state of suspended animation; it doesn’t need food or air and doesn’t age.
+        Your astral body resembles your mortal form in almost every way, replicating your
+        game statistics and possessions. The principal difference is the addition of a
+        silvery cord that extends from between your shoulder blades and trails behind you,
+        fading to invisibility after 1 foot. This cord is your tether to your material body.
+        As long as the tether remains intact, you can find your way home. If the cord is
+        cut—something that can happen only when an effect specifically states that it
+        does—your soul and body are separated, killing you instantly.
+        Your astral form can freely travel through the Astral Plane and can pass through
+        portals there leading to any other plane. If you enter a new plane or return to the
+        plane you were on when casting this spell, your body and possessions are transported
+        along the silver cord, allowing you to re-enter your body as you enter the new plane.
+        Your astral form is a separate incarnation. Any damage or other effects that apply to
+        it have no effect on your physical body, nor do they persist when you return to it.
+        The spell ends for you and your companions when you use your action to dismiss it.
+        When the spell ends, the affected creature returns to its physical body, and it awakens.
+        The spell might also end early for you or one of your companions. A successful dispel
+        magic spell used against an astral or physical body ends the spell for that creature.
+        If a creature’s original body or its astral form drops to 0 hit points, the spell ends
+        for that creature. If the spell ends and the silver cord is intact, the cord pulls the
+        creature’s astral form back to its body, ending its state of suspended animation.
+        If you are returned to your body prematurely, your companions remain in their astral
+        forms and must find their own way back to their bodies, usually by dropping to 0 hit
+        points.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=9,
+        range='10 feet',
+        verbal=True,
+        somatic=True,
+        material="""For each creature you affect with this spell, you must provide one jacinth
+        worth at least 1,000 gp and one ornately carved bar of silver worth at least 100 gp,
+        all of which the spell consumes""",
+        ritual=False,
+        duration='Special',
+        concentration=False,
+        casting_time='1 hour',
+        school='necromancy',
+        classes='cleric,warlock,wizard'
+    )
+    spell020 = Spellcard(
+        name='Augury',
+        description="""By casting gem-inlaid sticks, rolling dragon bones, laying out ornate
+        cards, or employing some other divining tool, you receive an omen from an otherworldly
+        entity about the results of a specific course of action that you plan to take within
+        the next 30 minutes. The GM chooses from the following possible omens:
+        Weal, for good results
+        Woe, for bad results
+        Weal and woe, for both good and bad results
+        Nothing, for results that aren’t especially good or bad
+        The spell doesn’t take into account any possible circumstances that might change the
+        outcome, such as the casting of additional spells or the loss or gain of a companion.
+        If you cast the spell two or more times before completing your next long rest, there
+        is a cumulative 25 percent chance for each casting after the first that you get a
+        random reading. The GM makes this roll in secret.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=2,
+        range='Self',
+        verbal=True,
+        somatic=True,
+        material="Specially marked sticks, bones, or similar tokens worth at least 25 gp",
+        ritual=True,
+        duration='Instantaneous',
+        concentration=False,
+        casting_time='1 minute',
+        school='divination',
+        classes='cleric'
+    )
+    spell021 = Spellcard(
+        name='Awaken',
+        description="""After spending the casting time tracing magical pathways within a
+        precious gemstone, you touch a Huge or smaller beast or plant. The target must have
+        either no Intelligence score or an Intelligence of 3 or less. The target gains an
+        Intelligence of 10. The target also gains the ability to speak one language you know.
+        If the target is a plant, it gains the ability to move its limbs, roots, vines,
+        creepers, and so forth, and it gains senses similar to a human’s. Your GM chooses
+        statistics appropriate for the awakened plant, such as the statistics for the awakened
+        shrub or the awakened tree.
+        The awakened beast or plant is charmed by you for 30 days or until you or your
+        companions do anything harmful to it. When the charmed condition ends, the awakened
+        creature chooses whether to remain friendly to you, based on how you treated it
+        while it was charmed.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=5,
+        range='Touch',
+        verbal=True,
+        somatic=True,
+        material="An agate worth at least 1,000 gp, which the spell consumes",
+        ritual=False,
+        duration='Instantaneous',
+        concentration=False,
+        casting_time='8 hours',
+        school='transmutation',
+        classes='bard,druid'
+    )
 
 
 
@@ -296,5 +665,17 @@ def seed_basic_spellcards():
     db.session.add(spell008)
     db.session.add(spell009)
     db.session.add(spell010)
+    db.session.add(spell011)
+    db.session.add(spell012)
+    db.session.add(spell013)
+    db.session.add(spell014)
+    db.session.add(spell015)
+    db.session.add(spell016)
+    db.session.add(spell017)
+    db.session.add(spell018)
+    db.session.add(spell019)
+    db.session.add(spell020)
+    db.session.add(spell021)
+
 
     db.session.commit()

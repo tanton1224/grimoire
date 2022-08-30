@@ -17,3 +17,12 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+
+@user_routes.route('/<user_id>', methods=['PUT'])
+def edit_user_info(user_id):
+    user = User.query.get(user_id)
+
+    
+
+    user.username
