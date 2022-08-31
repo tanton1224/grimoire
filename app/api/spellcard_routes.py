@@ -30,6 +30,9 @@ def homebrew():
 def edit_homebrew_card(card_id):
     card = Spellcard.query.get(card_id)
 
+    if not card:
+        raise ReferenceError("404: Spellcard could not be found")
+
     if card.user_id != current_user.id:
         raise AssertionError("Unauthorized: This isn't your card to edit")
 
@@ -91,3 +94,20 @@ def create_spellcard():
 
     print(form.errors)
     return 'Form did not validate!'
+
+
+@spellcard_routes.route("/<spell_id>", methods=['DELETE'])
+@login_required
+def delete_spellcard(spell_id):
+    card = Spellcard.query.get(spell_id)
+
+    if not card:
+        raise ReferenceError("404: Spellcard could not be found")
+
+    if card.user_id != current_user.id:
+        raise AssertionError("Unauthorized: This isn't your card to delete")
+
+    db.session.delete(card)
+    db.session.commit()
+
+    return "Successfully Deleted"
