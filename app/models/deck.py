@@ -16,5 +16,5 @@ class Deck(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'name': self.name,
-            'spellcards': self.spellcards
+            'spellcards': (self.spellcards).split(',')
         }
