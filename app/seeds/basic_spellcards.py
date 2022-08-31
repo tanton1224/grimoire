@@ -655,6 +655,35 @@ def seed_basic_spellcards():
 
 
 
+
+    spell363 = Spellcard(
+        name='Spellsteal',
+        description="""If a creature is casting a 1st level spell, you may use your reaction
+        to redirect and siphon the spell. Any material components required for the spell are
+        consumed from the creature casting it and that creature loses a spell slot like
+        normal. If you have stolen a spell, you can cast it on your next turn without
+        requiring materials, without having known the spell, and without using a spell slot.
+        If you do not cast the spell by the end of your next turn, the spell fails with no
+        effects.
+        At Higher Levels. The level of spells that can be stolen increases by 1 for every
+        level of spell slot above 4th used.""",
+        image_url='https://cdnb.artstation.com/p/assets/images/images/009/031/171/medium/richard-thomas-paints.jpg?1516736560',
+        level=3,
+        range='60 feet',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='Instantaneous',
+        concentration=False,
+        casting_time='1 reaction',
+        school='abjuration',
+        classes='bard,cleric,druid,paladin,sorcerer,warlock,wizard',
+        homebrew=True
+    )
+
+
+
     db.session.add(spell001)
     db.session.add(spell002)
     db.session.add(spell003)
@@ -677,5 +706,6 @@ def seed_basic_spellcards():
     db.session.add(spell020)
     db.session.add(spell021)
 
+    db.session.add(spell363)
 
     db.session.commit()
