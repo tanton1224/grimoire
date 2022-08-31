@@ -89,5 +89,5 @@ def create_spellcard():
 
         return card.to_dict()
 
-    print(form.data)
+    print(form.errors)
     return 'Form did not validate!'

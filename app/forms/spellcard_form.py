@@ -1,23 +1,23 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, BooleanField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms.validators import DataRequired, NumberRange
 
 
 
 class SpellcardForm(FlaskForm):
-    name = StringField("Name")
-    description = StringField("Description")
-    image_url = StringField("Image Url")
-    level = IntegerField("Level")
-    range = StringField("Range")
-    verbal = BooleanField("Verbal")
-    somatic = BooleanField("Somatic")
-    material = StringField("Material")
-    ritual = BooleanField("Ritual")
-    duration = StringField("Duration")
-    concentration = BooleanField("Doncentration")
-    casting_time = StringField("Casting Time")
-    school = StringField("School")
-    classes = StringField("Classes")
-    homebrew = BooleanField("Name")
-    user_id = IntegerField("User ID")
+    name = StringField("name", validators=[DataRequired()])
+    description = StringField("description", validators=[DataRequired()])
+    image_url = StringField("image_url", validators=[DataRequired()])
+    level = IntegerField("level", validators=[NumberRange(min=0, max=9, message='Level not in valid range')])
+    range = StringField("range", validators=[DataRequired()])
+    verbal = BooleanField("verbal")
+    somatic = BooleanField("somatic")
+    material = StringField("material")
+    ritual = BooleanField("ritual")
+    duration = StringField("duration", validators=[DataRequired()])
+    concentration = BooleanField("concentration")
+    casting_time = StringField("casting_time", validators=[DataRequired()])
+    school = StringField("school", validators=[DataRequired()])
+    classes = StringField("classes", validators=[DataRequired()])
+    homebrew = BooleanField("name")
+    user_id = IntegerField("user_id")
