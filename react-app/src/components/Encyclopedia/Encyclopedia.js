@@ -15,6 +15,10 @@ function Encyclopedia() {
         dispatch(getSpellsThunk())
     }, [dispatch])
 
+    const toTitleCase = (string) => {
+        return string[0].toUpperCase() + string.slice(1).toLowerCase()
+    }
+
     return (
         <div className="encyclopedia-container">
             {encyclopedia && spellcards.map(spell => (
@@ -23,7 +27,7 @@ function Encyclopedia() {
                         <div className="flip-card-front">
                             <div className="card-header">
                                 <h3>{spell.name}</h3>
-                                <h3>{spell.level}</h3>
+                                <h3>{toTitleCase(spell.school)} {spell.level}</h3>
                             </div>
                             <div className="flip-card-image-container">
                                 <img src={spell.image_url} alt="spell image" />
