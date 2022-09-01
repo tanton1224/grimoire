@@ -8,11 +8,9 @@ const getSpells = (spells) => ({
 
 export const getSpellsThunk = () => async dispatch => {
     const res = await fetch('/api/spellcards')
-    console.log(res, "-- -- -- -- -- -")
 
     if (res.ok) {
         const spells = await res.json()
-        console.log(spells, "-- -- -- -- -- -- -- --")
         dispatch(getSpells(spells))
         return spells
     }
