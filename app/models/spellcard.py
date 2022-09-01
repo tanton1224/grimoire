@@ -40,7 +40,7 @@ class Spellcard(db.Model):
             'concentration': self.concentration,
             'casting_time': self.casting_time,
             'school': self.school,
-            'classes': self.classes,
+            'classes': [class_name.title() for class_name in (self.classes).split(',')],
             'homebrew': self.homebrew,
             'user_id': self.user_id,
         }

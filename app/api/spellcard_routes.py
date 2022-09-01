@@ -7,21 +7,14 @@ from flask_login import current_user, login_required
 spellcard_routes = Blueprint("spellcards", __name__, url_prefix="/spellcards")
 
 
-@spellcard_routes.route("/encyclopedia")
+@spellcard_routes.route("")
 def encyclopedia():
-    spellcards = Spellcard.query.filter(Spellcard.homebrew == False).all()
+    encyclopedia = Spellcard.query.filter(Spellcard.homebrew == False).all()
+    homebrew = Spellcard.query.filter(Spellcard.homebrew == True).all()
 
     return {
-        "spellcards": [spellcard.to_dict() for spellcard in spellcards]
-    }
-
-
-@spellcard_routes.route("/homebrew")
-def homebrew():
-    spellcards = Spellcard.query.filter(Spellcard.homebrew == True).all()
-
-    return {
-        "spellcards": [spellcard.to_dict() for spellcard in spellcards]
+        "encyclopedia": [spellcard.to_dict() for spellcard in encyclopedia],
+        "homebrew": [spellcard.to_dict() for spellcard in homebrew]
     }
 
 
