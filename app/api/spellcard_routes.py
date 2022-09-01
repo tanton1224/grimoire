@@ -18,6 +18,19 @@ def encyclopedia():
     }
 
 
+@spellcard_routes.route("/<card_id>")
+def single_card(card_id):
+    card = Spellcard.query.get(card_id)
+
+    if not card:
+        raise ReferenceError("404: Card could not be found")
+
+    if card.user_id != current_user.id:
+        raise AssertionError("Unauthorized: This isn't your card to access")
+
+    return card.to_dict()
+
+
 @spellcard_routes.route('/<card_id>', methods=['PUT'])
 @login_required
 def edit_homebrew_card(card_id):
@@ -84,8 +97,7 @@ def create_spellcard():
         db.session.commit()
 
         return card.to_dict()
-
-    print(form.errors)
+        
     return 'Form did not validate!'
 
 
