@@ -41,7 +41,7 @@ function DeckDisplay() {
                             <AddCardField deck={deck} />
                             <h3>{deck.spellcards.length}</h3>
                         </div>
-                        <div className="deck-card-display">
+                        {deck.spellcards !== '' ? <div className="deck-card-display">
                             {deck.spellcards.map((cardId, index) => {
                                 let spell = spells[cardId];
                                 return (
@@ -75,7 +75,7 @@ function DeckDisplay() {
                                     </div>
                                 )
                             })}
-                        </div>
+                        </div> : <div>No cards yet! Go ahead and add some!</div>}
                     </div>
                 ) : ''
             })}

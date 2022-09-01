@@ -10,8 +10,7 @@ function AddCardField({ deck }) {
     const basic = useSelector(state => state.spellcards?.encyclopedia);
     const homebrew = useSelector(state => state.spellcards?.homebrew);
     const [ showDropdown, setShowDropdown ] = useState(false);
-    const [ chosenCard, setChosenCard ] = useState(null)
-    const [ query, setQuery ] = useState('');
+    const [ chosenCard, setChosenCard ] = useState('')
 
 
     let spells;
@@ -31,31 +30,34 @@ function AddCardField({ deck }) {
         return () => document.removeEventListener("click", closeDropdown);
     }, [showDropdown])
 
-    const options = spells.map(spell => {
+
+    let options = spells.map(spell => {
         return { value: spell, label: spell.name}
     })
 
-    const onChange = e => {
 
-    }
-
-    // TODO:
     const handleAdd = async (e) => {
         e.preventDefault()
-        console.log(chosenCard, "chosenCard")
-        deck.spellcards.push(`${chosenCard.value.id}`)
-        console.log(deck.spellcards, "spellcards")
+
+        let spellcards;
+        if (deck.spellcards === '') {
+            spellcards = [`${chosenCard.value.id}`]
+        } else {
+            deck.spellcards.push(`${chosenCard.value.id}`)
+            spellcards = deck.spellcards.join(',')
+        }
 
         const payload = {
             user_id: deck.user_id,
             name: deck.name,
-            spellcards: deck.spellcards.join(',')
+            spellcards,
         }
 
         const success = await dispatch(updateDeckThunk(payload, deck.id))
 
         if (success) {
             history.push(`/decks/${deck.id}`)
+            setChosenCard('')
         }
     }
 
@@ -68,6 +70,7 @@ function AddCardField({ deck }) {
             onChange={value => setChosenCard(value)}
             options={options}
             className="add-card-select"
+            required
         />
         <button type="submit">Submit</button>
         </form>

@@ -9,10 +9,17 @@ function RemoveCard({ onClick, deck, index }) {
     const handleRemoval = async () => {
         deck.spellcards.splice(index, 1)
 
+        let spellcards;
+        if (deck.spellcards.length === 0) {
+            spellcards = deck.spellcards
+        } else {
+            spellcards = deck.spellcards.join(',')
+        }
+
         const payload = {
             user_id: deck.user_id,
             name: deck.name,
-            spellcards: deck.spellcards.join(','),
+            spellcards,
         }
 
         const success = await dispatch(updateDeckThunk(payload, deck.id))
