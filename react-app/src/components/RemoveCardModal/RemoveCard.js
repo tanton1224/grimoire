@@ -8,7 +8,6 @@ function RemoveCard({ onClick, deck, index }) {
 
     const handleRemoval = async () => {
         deck.spellcards.splice(index, 1)
-        console.log(deck.spellcards, "-- -- -- spellcards in deck after splice -- -- --")
 
         const payload = {
             user_id: deck.user_id,

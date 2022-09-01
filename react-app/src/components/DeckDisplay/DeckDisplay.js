@@ -3,22 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDecksThunk } from "../../store/decks";
 import { getSpellsThunk } from "../../store/spellcards";
 import RemoveCardModal from "../RemoveCardModal";
+import AddCardField from "../AddCardField/AddCardField";
 import './DeckDisplay.css'
 
 
 function DeckDisplay() {
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.user)
-    const decksObj = useSelector(state => state.decks)
-    const basic = useSelector(state => state.spellcards?.encyclopedia)
-    const homebrew = useSelector(state => state.spellcards?.homebrew)
+    const user = useSelector(state => state.session.user);
+    const decksObj = useSelector(state => state.decks);
+    const basic = useSelector(state => state.spellcards?.encyclopedia);
+    const homebrew = useSelector(state => state.spellcards?.homebrew);
     let spells;
     let decks;
     if (basic && homebrew) {
-        spells = {...basic, ...homebrew}
+        spells = {...basic, ...homebrew};
     }
     if (decksObj) {
-        decks = Object.values(decksObj)
+        decks = Object.values(decksObj);
     }
 
     useEffect(() => {
@@ -37,6 +38,7 @@ function DeckDisplay() {
                     <div className="deck-display">
                         <div className="deck-header">
                             <h3>{deck.name}</h3>
+                            <AddCardField deck={deck} />
                             <h3>{deck.spellcards.length}</h3>
                         </div>
                         <div className="deck-card-display">
