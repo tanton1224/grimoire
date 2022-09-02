@@ -5,6 +5,7 @@ import { getSpellsThunk } from "../../store/spellcards";
 import RemoveCardModal from "../RemoveCardModal";
 import AddCardField from "../AddCardField/AddCardField";
 import './ProfileDeckDisplay.css'
+import DeleteDeckModal from "../DeleteDeckModal";
 
 
 function ProfileDeckDisplay() {
@@ -38,8 +39,9 @@ function ProfileDeckDisplay() {
                     <div className="deck-display">
                         <div className="deck-header">
                             <h3>{deck.name}</h3>
+                            <DeleteDeckModal deck={deck} />
                             <AddCardField deck={deck} />
-                            <h3>{deck.spellcards.length}</h3>
+                            <h3>{`${deck.spellcards.length} cards`}</h3>
                         </div>
                         {deck.spellcards !== '' ? <div className="deck-card-display">
                             {deck.spellcards.map((cardId, index) => {
