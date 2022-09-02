@@ -8,7 +8,7 @@ function DeleteDeckModal({ deck }) {
 
     return (
         <>
-        <div className='delete-deck-button' onClick={() => setShowModal(true)}>Delete</div>
+        <div className='delete-deck-button' onClick={() => setShowModal(true)}>Delete deck</div>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
                 <DeleteDeck onClick={() => setShowModal(false)} deck={deck} />

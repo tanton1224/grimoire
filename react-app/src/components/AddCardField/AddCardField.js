@@ -11,6 +11,7 @@ function AddCardField({ deck }) {
     const homebrew = useSelector(state => state.spellcards?.homebrew);
     const [ showDropdown, setShowDropdown ] = useState(false);
     const [ chosenCard, setChosenCard ] = useState('')
+    const [ hasErrors, setHasErrors ] = useState(false)
 
 
     let spells;
@@ -38,6 +39,13 @@ function AddCardField({ deck }) {
 
     const handleAdd = async (e) => {
         e.preventDefault()
+
+        if (chosenCard === '') {
+            setHasErrors(true)
+            return
+        } else {
+            setHasErrors(false)
+        }
 
         let spellcards;
         if (deck.spellcards === '') {
@@ -69,8 +77,8 @@ function AddCardField({ deck }) {
             onChange={value => setChosenCard(value)}
             options={options}
             className="add-card-select"
-            required
         />
+        {hasErrors && <div className="add-card-errors">Must pick a card to add! Please pick a card and try again.</div>}
         <button type="submit">Add to deck</button>
         </form>
 

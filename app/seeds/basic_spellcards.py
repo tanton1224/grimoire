@@ -679,7 +679,8 @@ def seed_basic_spellcards():
         casting_time='1 reaction',
         school='abjuration',
         classes='bard,cleric,druid,paladin,sorcerer,warlock,wizard',
-        homebrew=True
+        homebrew=True,
+        user_id=1
     )
 
 

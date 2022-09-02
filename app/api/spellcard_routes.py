@@ -97,7 +97,7 @@ def create_spellcard():
         db.session.commit()
 
         return card.to_dict()
-        
+
     return 'Form did not validate!'
 
 

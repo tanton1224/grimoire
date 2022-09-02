@@ -10,7 +10,9 @@ function CreateDeckForm({ onClick }) {
     const user = useSelector(state => state.session.user)
     const [ name, setName ] = useState('')
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        
         const payload = {
             user_id: user.id,
             name,
@@ -19,8 +21,8 @@ function CreateDeckForm({ onClick }) {
         const deck = await dispatch(createDeckThunk(payload))
 
         if (deck) {
-            history.push(`/profile/decks`)
             onClick()
+            history.push(`/profile/decks`)
         }
     }
 
