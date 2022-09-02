@@ -34,6 +34,7 @@ function ProfileDeckDisplay() {
 
     return (
         <div className="deck-display-container">
+            <h1>Your Decks:</h1>
             {decks && spells && decks.map(deck => {
                 return user.id === deck.user_id ? (
                     <div className="deck-display">
