@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Encyclopedia from './components/Encyclopedia/Encyclopedia';
+import ProfileDeckDisplay from './components/ProfileDeckDisplay/ProfileDeckDisplay';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -31,6 +32,9 @@ function App() {
       <Switch>
         <Route path='/encyclopedia'>
           <Encyclopedia />
+        </Route>
+        <Route path='/profile/decks'>
+          <ProfileDeckDisplay />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />

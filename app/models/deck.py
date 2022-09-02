@@ -1,3 +1,4 @@
+from app.models import spellcard
 from .db import db
 
 class Deck(db.Model):
@@ -16,5 +17,5 @@ class Deck(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'name': self.name,
-            'spellcards': (self.spellcards).split(',')
+            'spellcards': (self.spellcards).split(',') if len(self.spellcards) > 0 else ''
         }

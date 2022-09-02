@@ -10,6 +10,7 @@ from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
 from .api.profile_routes import profile_routes
 from .api.spellcard_routes import spellcard_routes
+from .api.deck_routes import deck_routes
 
 from .seeds import seed_commands
 
@@ -35,6 +36,7 @@ app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(profile_routes, url_prefix='/api/profile')
 app.register_blueprint(spellcard_routes, url_prefix='/api/spellcards')
+app.register_blueprint(deck_routes, url_prefix='/api/decks')
 db.init_app(app)
 Migrate(app, db)
 
