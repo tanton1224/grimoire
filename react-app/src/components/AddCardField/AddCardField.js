@@ -56,7 +56,6 @@ function AddCardField({ deck }) {
         const success = await dispatch(updateDeckThunk(payload, deck.id))
 
         if (success) {
-            history.push(`/decks/${deck.id}`)
             setChosenCard('')
         }
     }
@@ -72,7 +71,7 @@ function AddCardField({ deck }) {
             className="add-card-select"
             required
         />
-        <button type="submit">Submit</button>
+        <button type="submit">Add to deck</button>
         </form>
 
     )

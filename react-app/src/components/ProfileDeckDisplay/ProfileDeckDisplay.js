@@ -4,10 +4,10 @@ import { getDecksThunk } from "../../store/decks";
 import { getSpellsThunk } from "../../store/spellcards";
 import RemoveCardModal from "../RemoveCardModal";
 import AddCardField from "../AddCardField/AddCardField";
-import './DeckDisplay.css'
+import './ProfileDeckDisplay.css'
 
 
-function DeckDisplay() {
+function ProfileDeckDisplay() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const decksObj = useSelector(state => state.decks);
@@ -34,7 +34,7 @@ function DeckDisplay() {
     return (
         <div className="deck-display-container">
             {decks && spells && decks.map(deck => {
-                return user.id == deck.user_id ? (
+                return user.id === deck.user_id ? (
                     <div className="deck-display">
                         <div className="deck-header">
                             <h3>{deck.name}</h3>
@@ -84,4 +84,4 @@ function DeckDisplay() {
 }
 
 
-export default DeckDisplay
+export default ProfileDeckDisplay

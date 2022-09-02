@@ -1,10 +1,16 @@
 const GET_DECKS = 'decks/GET_DECKS'
 const DELETE_DECK = 'decks/DELETE_DECK'
 const UPDATE_DECK = 'decks/UPDATE_DECK'
+const CREATE_DECK = 'decks/CREATE_DECK'
 
 const getDecks = (decks) => ({
     type: GET_DECKS,
     decks
+})
+
+const createDeck = (deck) => ({
+    type: CREATE_DECK,
+    deck
 })
 
 const deleteDeck = (deckId) => ({
@@ -25,6 +31,20 @@ export const getDecksThunk = () => async dispatch => {
         const decks = await res.json()
         dispatch(getDecks(decks))
         return decks
+    }
+}
+
+export const createDeckThunk = (payload) => async dispatch => {
+    const res = await fetch('/api/decks', {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    })
+
+    if (res.ok) {
+        const deck = await res.json()
+        dispatch(createDeck(deck))
+        return deck
     }
 }
 
@@ -56,6 +76,11 @@ export default function reducer(state = {}, action) {
         case GET_DECKS: {
             newState = {}
             action.decks.decks.forEach(deck => newState[deck.id] = deck)
+            return newState
+        }
+        case CREATE_DECK: {
+            newState = {...state}
+            newState[action.deck.id] = action.deck
             return newState
         }
         case DELETE_DECK: {

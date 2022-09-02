@@ -25,7 +25,6 @@ function RemoveCard({ onClick, deck, index }) {
         const success = await dispatch(updateDeckThunk(payload, deck.id))
 
         if (success) {
-            history.push(`/decks/${deck.id}`)
             onClick()
         }
     }
