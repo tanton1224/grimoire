@@ -49,6 +49,11 @@
     font-size: 20px;
 }
 
+.spellcard-back-title > div {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .components-container {
     display: flex;
     justify-content: space-evenly;

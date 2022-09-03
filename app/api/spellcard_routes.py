@@ -98,6 +98,11 @@ def create_spellcard():
 
         return card.to_dict()
 
+    print("-- -- -- -- -- --")
+    print("-- -- -- -- -- --")
+    print("-- -- -- -- -- --")
+    print("-- -- -- -- -- --")
+    print(form.errors)
     return 'Form did not validate!'
 
 

@@ -35,6 +35,7 @@ export const getSpellsThunk = () => async dispatch => {
 }
 
 export const createCardThunk = (payload) => async dispatch => {
+    console.log(payload, "-- -- -- payload -- -- --")
     const res = await fetch('/api/spellcards', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
@@ -57,6 +58,7 @@ export const updateCardThunk = (payload, spellcardId) => async dispatch => {
 
     if (res.ok) {
         const spell = await res.json()
+        console.log(spell, "-- -- -- spell -- -- --")
         dispatch(updateSpell(spell))
         return spell
     }

@@ -1,10 +1,12 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { useEffect, useState } from "react";
+import { createCardThunk, getSpellsThunk } from "../../store/spellcards";
 
-function CreateSpellcard() {
+function CreateSpellcard({ onClick }) {
     const dispatch = useDispatch();
     const history = useHistory();
+    const user = useSelector(state => state.session.user)
     const [ name, setName ] = useState('')
     const [ imageUrl, setImageUrl ] = useState('')
     const [ description, setDescription ] = useState('')
@@ -14,9 +16,9 @@ function CreateSpellcard() {
     const [ somatic, setSomatic ] = useState(false)
     const [ material, setMaterial ] = useState('')
     const [ materialField, setMaterialField ] = useState(false)
-    const [ ritual, setRitual ] = useState('')
+    const [ ritual, setRitual ] = useState(false)
     const [ duration, setDuration ] = useState('')
-    const [ concentration, setConcentration ] = useState('')
+    const [ concentration, setConcentration ] = useState(false)
     const [ castingTime, setCastingTime ] = useState('')
     const [ school, setSchool ] = useState('')
     const [ bard, setBard ] = useState(false)
@@ -58,15 +60,37 @@ function CreateSpellcard() {
 
     useEffect(() => {
         const newErrors = {}
+
         if (name.length >= 50) {
             newErrors.name = "Spell name character limit reached (50)"
         }
+        if (castingTime.length >= 25) {
+            newErrors.castingTime = "Casting Time character limit reached (25)"
+        }
+        if (range.length >= 25) {
+            newErrors.range = "Range character limit reached (25)"
+        }
+        if (material.length >= 200) {
+            newErrors.material = "Material character limit reached (200)"
+        }
+        if (duration.length >= 25) {
+            newErrors.duration = "Duration character limit reached (25)"
+        }
+        if (description.length >= 200) {
+            newErrors.description = "Description character limit reached (200)"
+        }
+
+
         if (Object.values(newErrors).length > 0) {
             setErrors(newErrors)
+        } else {
+            setErrors({})
         }
-    }, [name])
+    }, [name, castingTime, range, material, duration, description])
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
         const newErrors = {}
 
         if (bard) {
@@ -96,13 +120,38 @@ function CreateSpellcard() {
         }
 
 
-
-
         if (Object.values(newErrors).length > 0) {
             setErrors(newErrors)
         } else {
+            e.preventDefault()
             setErrors({})
-            // handle submission
+
+            const payload = {
+                name,
+                description,
+                image_url: imageUrl,
+                level: Number(level),
+                range,
+                verbal,
+                somatic,
+                material,
+                ritual,
+                duration,
+                concentration,
+                casting_time: castingTime,
+                school,
+                classes: classes.join(','),
+                homebrew: true,
+                user_id: user.id
+            }
+
+            const success = await dispatch(createCardThunk(payload))
+
+            if (success) {
+                onClick()
+                dispatch(getSpellsThunk())
+                history.push('/profile/cards')
+            }
         }
 
     }
@@ -110,7 +159,7 @@ function CreateSpellcard() {
 
     return (
         <div className="create-spellcard-container">
-            <form className="create-spellcard-form" handleSubmit={handleSubmit} >
+            <form className="create-spellcard-form" onSubmit={handleSubmit} >
                 <div className="create-spellcard-front">
                     <div className="spell-school-image-container">
                         <img src={imageUrl} alt="Choose your spell school to see card preview!" />
@@ -118,7 +167,7 @@ function CreateSpellcard() {
                 </div>
                 <div className="create-spellcard-back">
                     <div className="spellcard-back-title">
-                        <h3>Create Your Spellcard</h3>
+                        <div>Create Your Spellcard</div>
                     </div>
                     <input
                         type="text"
@@ -154,17 +203,19 @@ function CreateSpellcard() {
                         placeholder="Casting Time"
                         value={castingTime}
                         onChange={e => setCastingTime(e.target.value)}
-                        maxLength="50"
+                        maxLength="25"
                         required
                     ></input>
+                    {errors.castingTime && <div className="create-spell-error">{errors.castingTime}</div>}
                     <input
                         type="text"
                         placeholder="Range"
                         value={range}
                         onChange={e => setRange(e.target.value)}
-                        maxLength="50"
+                        maxLength="25"
                         required
                     ></input>
+                    {errors.range && <div className="create-spell-error">{errors.range}</div>}
                     <div className="components-container create-category">Components:
                         <label style={{"font-weight": "normal"}}> V
                             <input
@@ -194,7 +245,10 @@ function CreateSpellcard() {
                         value={material}
                         onChange={e => setMaterial(e.target.value)}
                         maxLength="200"
-                    ></input>: ''}
+                        required
+                    ></input>
+                    : ''}
+                    {errors.material && <div className="create-spell-error">{errors.material}</div>}
                     <div className="ritual-concentration-container">
                         <label className="create-category">Ritual:
                             <input
@@ -216,14 +270,16 @@ function CreateSpellcard() {
                         placeholder="Duration"
                         value={duration}
                         onChange={e => setDuration(e.target.value)}
-                        maxLength="50"
+                        maxLength="25"
                     ></input>
+                    {errors.duration && <div className="create-spell-error">{errors.duration}</div>}
                     <textarea
                         placeholder="Description"
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                         maxLength="500"
                     ></textarea>
+                    {errors.description && <div className="create-spell-error">{errors.description}</div>}
                     <div className="class-selector-container">
                         <div className="create-category">Classes: </div>
                         <div className="class-selector-options">
@@ -277,6 +333,7 @@ function CreateSpellcard() {
                                 ></input>
                             </label>
                         </div>
+                        {errors.classes && <div className="create-spell-error">{errors.classes}</div>}
                     </div>
                     <button className="create-spell-submit-button" type="submit">Submit</button>
                 </div>
