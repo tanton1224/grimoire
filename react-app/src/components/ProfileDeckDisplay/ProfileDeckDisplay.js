@@ -6,10 +6,12 @@ import RemoveCardModal from "../RemoveCardModal";
 import AddCardField from "../AddCardField/AddCardField";
 import './ProfileDeckDisplay.css'
 import DeleteDeckModal from "../DeleteDeckModal";
+import { useHistory } from "react-router-dom";
 
 
 function ProfileDeckDisplay() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector(state => state.session.user);
     const decksObj = useSelector(state => state.decks);
     const basic = useSelector(state => state.spellcards?.encyclopedia);
@@ -22,6 +24,12 @@ function ProfileDeckDisplay() {
     if (decksObj) {
         decks = Object.values(decksObj);
     }
+
+    useEffect(() => {
+        if (!user) {
+            history.push('/login')
+        }
+    }, [])
 
     useEffect(() => {
         dispatch(getDecksThunk())

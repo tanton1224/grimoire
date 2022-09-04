@@ -3,7 +3,7 @@ import { Modal } from '../../context/Modal'
 import CreateSpellcard from './CreateSpellcard'
 import './CreateSpellcard.css'
 
-function CreateSpellcardModal({ deck }) {
+function CreateSpellcardModal() {
     const [showModal, setShowModal] = useState(false)
 
     return (

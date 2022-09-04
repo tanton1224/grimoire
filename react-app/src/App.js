@@ -37,7 +37,7 @@ function App() {
         <Route path='/profile/decks'>
           <ProfileDeckDisplay />
         </Route>
-        <Route path='/profile/cards'>
+        <Route path='/profile/spellcards'>
           <ProfileCardsDisplay />
         </Route>
         <Route path='/login' exact={true}>

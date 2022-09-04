@@ -98,12 +98,7 @@ def create_spellcard():
 
         return card.to_dict()
 
-    print("-- -- -- -- -- --")
-    print("-- -- -- -- -- --")
-    print("-- -- -- -- -- --")
-    print("-- -- -- -- -- --")
-    print(form.errors)
-    return 'Form did not validate!'
+    return {'errors': 'Form did not validate!'}
 
 
 @spellcard_routes.route("/<spell_id>", methods=['DELETE'])

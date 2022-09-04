@@ -1,16 +1,25 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getSpellsThunk } from "../../store/spellcards";
+import EditSpellcardModal from "../EditSpellcardModal";
 
 
 function ProfileCardsDisplay() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const user = useSelector(state => state.session.user)
     const homebrew = useSelector(state => state.spellcards?.homebrew);
     let cards;
     if (homebrew) {
         cards = Object.values(homebrew)
     }
+
+    useEffect(() => {
+        if (!user) {
+            history.push('/login')
+        }
+    }, [])
 
     useEffect(() => {
         dispatch(getSpellsThunk())
@@ -25,7 +34,8 @@ function ProfileCardsDisplay() {
             <h1>Your Homebrew Cards:</h1>
             <div className="profile-cards-container">
             {cards && cards.map(spell => {
-                return user.id === spell.user_id ? (
+                return user?.id === spell.user_id ? (
+                    <div>
                     <div className="flip-card-container">
                         <div className="flip-card">
                             <div className="flip-card-front">
@@ -50,6 +60,8 @@ function ProfileCardsDisplay() {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <EditSpellcardModal spell={spell}/>
                     </div>
                 ) : ''
             })}

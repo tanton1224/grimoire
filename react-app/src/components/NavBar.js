@@ -21,7 +21,12 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink to='/profile/decks' exact={true} activeClassName='active'>
-            Decks
+            Your Decks
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/profile/spellcards' exact={true} activeClassName='active'>
+            Your Spellcards
           </NavLink>
         </li>
         <li>
