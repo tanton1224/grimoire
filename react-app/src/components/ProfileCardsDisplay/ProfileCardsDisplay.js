@@ -20,7 +20,7 @@ function ProfileCardsDisplay() {
         if (!user) {
             history.push('/login')
         }
-    }, [])
+    })
 
     useEffect(() => {
         dispatch(getSpellsThunk())

@@ -29,7 +29,7 @@ function ProfileDeckDisplay() {
         if (!user) {
             history.push('/login')
         }
-    }, [])
+    })
 
     useEffect(() => {
         dispatch(getDecksThunk())

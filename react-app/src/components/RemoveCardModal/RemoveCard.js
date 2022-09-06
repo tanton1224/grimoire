@@ -1,10 +1,8 @@
 import { useDispatch } from "react-redux"
 import { updateDeckThunk } from "../../store/decks";
-import { useHistory } from 'react-router-dom'
 
 function RemoveCard({ onClick, deck, index }) {
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const handleRemoval = async () => {
         deck.spellcards.splice(index, 1)

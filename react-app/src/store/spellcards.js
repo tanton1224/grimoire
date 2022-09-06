@@ -35,7 +35,6 @@ export const getSpellsThunk = () => async dispatch => {
 }
 
 export const createCardThunk = (payload) => async dispatch => {
-    console.log(payload, "-- -- -- payload -- -- --")
     const res = await fetch('/api/spellcards', {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
