@@ -97,8 +97,8 @@ def create_spellcard():
         db.session.commit()
 
         return card.to_dict()
-        
-    return 'Form did not validate!'
+
+    return {'errors': 'Form did not validate!'}
 
 
 @spellcard_routes.route("/<spell_id>", methods=['DELETE'])

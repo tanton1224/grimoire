@@ -10,6 +10,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Encyclopedia from './components/Encyclopedia/Encyclopedia';
 import ProfileDeckDisplay from './components/ProfileDeckDisplay/ProfileDeckDisplay';
+import ProfileCardsDisplay from './components/ProfileCardsDisplay/ProfileCardsDisplay';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path='/profile/decks'>
           <ProfileDeckDisplay />
+        </Route>
+        <Route path='/profile/spellcards'>
+          <ProfileCardsDisplay />
         </Route>
         <Route path='/login' exact={true}>
           <LoginForm />

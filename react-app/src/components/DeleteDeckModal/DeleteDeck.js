@@ -7,12 +7,13 @@ function DeleteDeck({ onClick, deck}) {
 
     const handleDelete = async () => {
         dispatch(deleteDeckThunk(deck.id))
+        onClick()
     }
 
     return (
         <div className="delete-deck-container">
             <h3>Permanently delete deck?</h3>
-            <div>This cannot be undone</div>
+            <div>This cannot be undone.</div>
             <div onClick={handleDelete}>Delete</div>
             <div onClick={onClick}>Cancel</div>
         </div>

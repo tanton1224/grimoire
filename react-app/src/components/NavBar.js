@@ -3,6 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import CreateDeckFormModal from './CreateDeckFormModal';
+import CreateSpellcardModal from './CreateSpellcardModal';
 
 const NavBar = () => {
   return (
@@ -20,7 +21,12 @@ const NavBar = () => {
         </li>
         <li>
           <NavLink to='/profile/decks' exact={true} activeClassName='active'>
-            Decks
+            Your Decks
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/profile/spellcards' exact={true} activeClassName='active'>
+            Your Spellcards
           </NavLink>
         </li>
         <li>
@@ -40,6 +46,9 @@ const NavBar = () => {
         </li>
         <li>
           <CreateDeckFormModal />
+        </li>
+        <li>
+          <CreateSpellcardModal />
         </li>
         <li>
           <LogoutButton />

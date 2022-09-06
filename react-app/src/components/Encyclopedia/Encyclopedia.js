@@ -38,7 +38,7 @@ function Encyclopedia() {
                                 <div className="spell-info"><span className="info-span">Casting time: </span>{spell.casting_time}</div>
                                 <div className="spell-info"><span className="info-span">Range: </span>{spell.range}</div>
                                 <div className="spell-info"><span className="info-span">Components: </span>{spell.verbal ? 'V' : ''} {spell.somatic ? 'S' : ''} {spell.material ? `M (${spell.material})` : ''}</div>
-                                <div className="spell-info"><span className="info-span">Duration: </span>{spell.duration}</div>
+                                <div className="spell-info"><span className="info-span">Duration: </span>{spell.concentration ? `Concentration, ${spell.duration}` : spell.duration}</div>
                                 <div className="spell-info"><span className="info-span">Classes: </span>{spell.classes.join(', ')}</div>
                             </div>
                             <div className="spell-description">
