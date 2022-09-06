@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getSpellsThunk } from "../../store/spellcards";
+import DeleteSpellcardModal from "../DeleteSpellcardModal";
 import EditSpellcardModal from "../EditSpellcardModal";
 
 
@@ -62,6 +63,7 @@ function ProfileCardsDisplay() {
                         </div>
                     </div>
                     <EditSpellcardModal spell={spell}/>
+                    <DeleteSpellcardModal spell={spell}/>
                     </div>
                 ) : ''
             })}
