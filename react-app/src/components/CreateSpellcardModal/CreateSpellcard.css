@@ -19,17 +19,13 @@
 .spell-school-image-container {
     width: 100%;
     height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .spell-school-image-container > img {
-    width: 100%;
+    /* width: 100%;
     height: 100%;
     object-fit: cover;
-    /* position: absolute; */
-    background-color: #BA9662;
+    background-color: #BA9662; */
 }
 
 .create-spellcard-back {

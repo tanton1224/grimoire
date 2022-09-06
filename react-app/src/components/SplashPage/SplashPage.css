@@ -1,0 +1,16 @@
+.splash-container {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.splash-image-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.splash-header-image {
+    width: 100%;
+    object-fit:fill;
+}

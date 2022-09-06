@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import { createCardThunk, getSpellsThunk } from "../../store/spellcards";
+import './CreateSpellcard.css'
 
 function CreateSpellcard({ onClick }) {
     const dispatch = useDispatch();
@@ -33,28 +34,28 @@ function CreateSpellcard({ onClick }) {
 
     useEffect(() => {
         if (school === "abjuration") {
-            setImageUrl("https://i.imgur.com/JVXCmVa.png")
+            setImageUrl("https://i.imgur.com/1uStoTv.jpg")
         }
         if (school === 'conjuration') {
-            setImageUrl("https://i.imgur.com/NO9n7Ps.png")
+            setImageUrl("https://i.imgur.com/Q5mfQyT.jpg")
         }
         if (school === 'divination') {
-            setImageUrl("https://i.imgur.com/aufqUdc.png")
+            setImageUrl("https://i.imgur.com/nIh7v2W.jpg")
         }
         if (school === 'enchantment') {
-            setImageUrl("https://i.imgur.com/CfDJy0N.png")
+            setImageUrl("https://i.imgur.com/pM9dasx.jpg")
         }
         if (school === 'evocation') {
-            setImageUrl("https://i.imgur.com/kbfadN4.png")
+            setImageUrl("https://i.imgur.com/32tLmkQ.jpg")
         }
         if (school === 'illusion') {
-            setImageUrl("https://i.imgur.com/gRAAL0F.png")
+            setImageUrl("https://i.imgur.com/d7xP8Lx.jpg")
         }
         if (school === 'necromancy') {
-            setImageUrl("https://i.imgur.com/eTGz7Df.png")
+            setImageUrl("https://i.imgur.com/B5zPdZI.jpg")
         }
         if (school === 'transmutation') {
-            setImageUrl("https://i.imgur.com/evIsNqj.png")
+            setImageUrl("https://i.imgur.com/zC3rsjS.jpg")
         }
     }, [school])
 
@@ -162,8 +163,7 @@ function CreateSpellcard({ onClick }) {
         <div className="create-spellcard-container">
             <form className="create-spellcard-form" onSubmit={handleSubmit} >
                 <div className="create-spellcard-front">
-                    <div className="spell-school-image-container">
-                        <img src={imageUrl} alt="Choose your spell school to see card preview!" />
+                    <div className="spell-school-image-container" style={{"backgroundImage": `url(${imageUrl})`, "backgroundSize": "cover"}}>
                     </div>
                 </div>
                 <div className="create-spellcard-back">
