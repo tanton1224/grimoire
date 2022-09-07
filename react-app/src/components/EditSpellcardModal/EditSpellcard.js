@@ -69,8 +69,8 @@ function EditSpellcard({ onClick, spell }) {
     useEffect(() => {
         const newErrors = {}
 
-        if (name.length >= 50) {
-            newErrors.name = "Spell name character limit reached (50)"
+        if (name.length >= 30) {
+            newErrors.name = "Spell name character limit reached (30)"
         }
         if (castingTime.length >= 25) {
             newErrors.castingTime = "Casting Time character limit reached (25)"
@@ -202,7 +202,10 @@ function EditSpellcard({ onClick, spell }) {
     return (
         <div className="create-spellcard-container">
             <form className="create-spellcard-form" onSubmit={handleSubmit}>
-                <EncyclopediaCard spell={{image_url: imageUrl, name, school, level, castingTime, range, verbal, somatic, material, duration, classes}} />
+                <div>
+                    <div className="card-preview-title">{"Spellcard Preview (Click to Flip!)"}</div>
+                    <EncyclopediaCard spell={{image_url: imageUrl, name, school, level, casting_time: castingTime, range, verbal, somatic, material, duration, classes}} />
+                </div>
                 <div className="create-spellcard-back">
                     <div className="spellcard-back-title">
                         <div>Edit Your Spellcard</div>
@@ -212,7 +215,7 @@ function EditSpellcard({ onClick, spell }) {
                         placeholder="Spell Name"
                         value={name}
                         onChange={e => setName(e.target.value)}
-                        maxLength="50"
+                        maxLength="30"
                         required
                     ></input>
                     {errors.name && <div className="create-spell-error">{errors.name}</div>}

@@ -15,7 +15,7 @@ function EncyclopediaCard({ spell }) {
                         .
                     </div>
                     <div className="card-header">
-                        <div style={{"font-size": "20px"}}>{spell.name}</div>
+                        <div className="card-name" style={{"font-size": "20px"}}>{spell.name}</div>
                         <div style={{"font-size": "14px"}}>{spell.school ? toTitleCase(spell.school) : ''} {spell.level}</div>
                     </div>
                 </div>

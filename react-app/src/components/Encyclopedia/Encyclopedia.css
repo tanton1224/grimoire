@@ -68,6 +68,14 @@
     align-items: center;
 }
 
+.card-name {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    word-break: break-word;
+    max-width: 250px;
+}
+
 .flip-card-image-container {
     width: 375px;
     height: 500px;
