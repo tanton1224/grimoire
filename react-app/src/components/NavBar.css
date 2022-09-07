@@ -1,0 +1,24 @@
+.nav-bar-container {
+    height: 70px;
+    display: flex;
+    position: sticky;
+    top: 0;
+    padding-left: 250px;
+    padding-right: 250px;
+    background-color: #25100B;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    z-index: 3;
+}
+
+nav a {
+    text-decoration: none;
+    color: #F3CB70;
+}
+
+.nav-logo {
+    font-family: 'Gothic G Regular';
+    font-size: 30px;
+    color: #F3CB70;
+}

@@ -12,6 +12,7 @@ import Encyclopedia from './components/Encyclopedia/Encyclopedia';
 import ProfileDeckDisplay from './components/ProfileDeckDisplay/ProfileDeckDisplay';
 import ProfileCardsDisplay from './components/ProfileCardsDisplay/ProfileCardsDisplay';
 import SplashPage from './components/SplashPage/SplashPage';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,6 +58,7 @@ function App() {
           <SplashPage />
         </ProtectedRoute>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }

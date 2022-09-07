@@ -4,11 +4,26 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import CreateDeckFormModal from './CreateDeckFormModal';
 import CreateSpellcardModal from './CreateSpellcardModal';
+import './NavBar.css'
 
 const NavBar = () => {
   return (
     <nav className='nav-bar-container'>
-      <ul>
+      <div className='nav-logo'>
+        <NavLink to='/' exact={true}>Grimoire</NavLink>
+      </div>
+      <div className='nav-options-section'>
+        <div className='nav-option'>
+          <NavLink to='/encyclopedia' exact={true}>Encyclopedia</NavLink>
+        </div>
+        <div className='nav-option'>
+          <CreateDeckFormModal />
+        </div>
+        <div className='nav-option'>
+          <CreateSpellcardModal />
+        </div>
+      </div>
+      {/* <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
@@ -53,7 +68,7 @@ const NavBar = () => {
         <li>
           <LogoutButton />
         </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 }

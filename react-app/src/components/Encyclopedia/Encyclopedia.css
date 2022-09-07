@@ -33,7 +33,7 @@
 .flip-card-container:hover{
     transform: translateY(-30px);
     transform: scale(1.06);
-    z-index: 5000;
+    z-index: 2;
 
     perspective: 1000px;
 }
@@ -129,4 +129,5 @@
     padding-left: 5px;
     padding-right: 5px;
     margin-bottom: 10px;
+    border-top: 1px dashed black;
 }
