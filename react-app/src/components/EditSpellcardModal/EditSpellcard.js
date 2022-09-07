@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import { createCardThunk, getSpellsThunk, updateCardThunk } from "../../store/spellcards";
+import EncyclopediaCard from "../Encyclopedia/EncyclopediaCard";
 
 function EditSpellcard({ onClick, spell }) {
     const dispatch = useDispatch();
@@ -40,28 +41,28 @@ function EditSpellcard({ onClick, spell }) {
 
     useEffect(() => {
         if (school === "abjuration") {
-            setImageUrl("https://i.imgur.com/JVXCmVa.png")
+            setImageUrl("https://i.imgur.com/1uStoTv.jpg")
         }
         if (school === 'conjuration') {
-            setImageUrl("https://i.imgur.com/NO9n7Ps.png")
+            setImageUrl("https://i.imgur.com/Q5mfQyT.jpg")
         }
         if (school === 'divination') {
-            setImageUrl("https://i.imgur.com/aufqUdc.png")
+            setImageUrl("https://i.imgur.com/nIh7v2W.jpg")
         }
         if (school === 'enchantment') {
-            setImageUrl("https://i.imgur.com/CfDJy0N.png")
+            setImageUrl("https://i.imgur.com/pM9dasx.jpg")
         }
         if (school === 'evocation') {
-            setImageUrl("https://i.imgur.com/kbfadN4.png")
+            setImageUrl("https://i.imgur.com/32tLmkQ.jpg")
         }
         if (school === 'illusion') {
-            setImageUrl("https://i.imgur.com/gRAAL0F.png")
+            setImageUrl("https://i.imgur.com/d7xP8Lx.jpg")
         }
         if (school === 'necromancy') {
-            setImageUrl("https://i.imgur.com/eTGz7Df.png")
+            setImageUrl("https://i.imgur.com/B5zPdZI.jpg")
         }
         if (school === 'transmutation') {
-            setImageUrl("https://i.imgur.com/evIsNqj.png")
+            setImageUrl("https://i.imgur.com/zC3rsjS.jpg")
         }
     }, [school])
 
@@ -95,31 +96,60 @@ function EditSpellcard({ onClick, spell }) {
         }
     }, [name, castingTime, range, material, duration, description, verbal])
 
+    useEffect(() => {
+        let newClasses = []
+
+        if (bard) {
+            newClasses.push('Bard')
+        }
+        if (cleric) {
+            newClasses.push('Cleric')
+        }
+        if (druid) {
+            newClasses.push('Druid')
+        }
+        if (paladin) {
+            newClasses.push('Paladin')
+        }
+        if (sorcerer) {
+            newClasses.push('Sorcerer')
+        }
+        if (warlock) {
+            newClasses.push('Warlock')
+        }
+        if (wizard) {
+            newClasses.push('Wizard')
+        }
+
+        setClasses(newClasses)
+
+    }, [bard, cleric, druid, paladin, sorcerer, warlock, wizard])
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         const newErrors = {}
 
         if (bard) {
-            classes.push('bard')
+            classes.push('Bard')
         }
         if (cleric) {
-            classes.push('cleric')
+            classes.push('Cleric')
         }
         if (druid) {
-            classes.push('druid')
+            classes.push('Druid')
         }
         if (paladin) {
-            classes.push('paladin')
+            classes.push('Paladin')
         }
         if (sorcerer) {
-            classes.push('sorcerer')
+            classes.push('Sorcerer')
         }
         if (warlock) {
-            classes.push('warlock')
+            classes.push('Warlock')
         }
         if (wizard) {
-            classes.push('wizard')
+            classes.push('Wizard')
         }
 
         if (!bard && !cleric && !druid && !paladin && !sorcerer && !warlock && !wizard) {
@@ -165,18 +195,17 @@ function EditSpellcard({ onClick, spell }) {
 
     }
 
+    const toTitleCase = (string) => {
+        return string[0].toUpperCase() + string.slice(1).toLowerCase()
+    }
 
     return (
         <div className="create-spellcard-container">
-            <form className="create-spellcard-form" onSubmit={handleSubmit} >
-                <div className="create-spellcard-front">
-                    <div className="spell-school-image-container">
-                        <img src={imageUrl} alt="Choose your spell school to see card preview!" />
-                    </div>
-                </div>
+            <form className="create-spellcard-form" onSubmit={handleSubmit}>
+                <EncyclopediaCard spell={{image_url: imageUrl, name, school, level, castingTime, range, verbal, somatic, material, duration, classes}} />
                 <div className="create-spellcard-back">
                     <div className="spellcard-back-title">
-                        <div>Create Your Spellcard</div>
+                        <div>Edit Your Spellcard</div>
                     </div>
                     <input
                         type="text"
@@ -333,7 +362,7 @@ function EditSpellcard({ onClick, spell }) {
                     <div className="class-selector-container">
                         <div className="create-category">Classes: </div>
                         <div className="class-selector-options">
-                            {bardCheck ? <label>Bard:
+                            {bard ? <label>Bard:
                                 <input
                                     type="checkbox"
                                     value={bard}
@@ -348,7 +377,7 @@ function EditSpellcard({ onClick, spell }) {
                                     onChange={e => setBard(!bard)}
                                 ></input>
                             </label>}
-                            {clericCheck ? <label>Cleric:
+                            {cleric ? <label>Cleric:
                                 <input
                                     type="checkbox"
                                     value={cleric}
@@ -363,7 +392,7 @@ function EditSpellcard({ onClick, spell }) {
                                     onChange={e => setCleric(!cleric)}
                                 ></input>
                             </label>}
-                            {druidCheck ? <label>Druid:
+                            {druid ? <label>Druid:
                                 <input
                                     type="checkbox"
                                     value={druid}
@@ -378,7 +407,7 @@ function EditSpellcard({ onClick, spell }) {
                                     onChange={e => setDruid(!druid)}
                                 ></input>
                             </label>}
-                            {paladinCheck ? <label>Paladin:
+                            {paladin ? <label>Paladin:
                                 <input
                                     type="checkbox"
                                     value={paladin}
@@ -386,14 +415,14 @@ function EditSpellcard({ onClick, spell }) {
                                     checked
                                 ></input>
                             </label>
-                            : <label>Druid:
+                            : <label>Paladin:
                                 <input
                                     type="checkbox"
                                     value={druid}
                                     onChange={e => setDruid(!druid)}
                                 ></input>
                             </label>}
-                            {sorcererCheck ? <label>Sorcerer:
+                            {sorcerer ? <label>Sorcerer:
                                 <input
                                     type="checkbox"
                                     value={sorcerer}
@@ -408,7 +437,7 @@ function EditSpellcard({ onClick, spell }) {
                                     onChange={e => setSorcerer(!sorcerer)}
                                 ></input>
                             </label>}
-                            {warlockCheck ? <label>Warlock:
+                            {warlock ? <label>Warlock:
                                 <input
                                     type="checkbox"
                                     value={warlock}
@@ -423,7 +452,7 @@ function EditSpellcard({ onClick, spell }) {
                                     onChange={e => setWarlock(!warlock)}
                                 ></input>
                             </label>}
-                            {wizardCheck ? <label>Wizard:
+                            {wizard ? <label>Wizard:
                                 <input
                                     type="checkbox"
                                     value={wizard}

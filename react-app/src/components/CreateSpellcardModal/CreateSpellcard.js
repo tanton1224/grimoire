@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import { createCardThunk, getSpellsThunk } from "../../store/spellcards";
 import './CreateSpellcard.css'
+import EncyclopediaCard from "../Encyclopedia/EncyclopediaCard";
 
 function CreateSpellcard({ onClick }) {
     const dispatch = useDispatch();
@@ -158,14 +159,14 @@ function CreateSpellcard({ onClick }) {
 
     }
 
+    const toTitleCase = (string) => {
+        return string[0].toUpperCase() + string.slice(1).toLowerCase()
+    }
 
     return (
         <div className="create-spellcard-container">
             <form className="create-spellcard-form" onSubmit={handleSubmit} >
-                <div className="create-spellcard-front">
-                    <div className="spell-school-image-container" style={{"backgroundImage": `url(${imageUrl})`, "backgroundSize": "cover"}}>
-                    </div>
-                </div>
+                <EncyclopediaCard spell={{image_url: imageUrl, name, school, level, castingTime, range, verbal, somatic, material, duration, classes}}/>
                 <div className="create-spellcard-back">
                     <div className="spellcard-back-title">
                         <div>Create Your Spellcard</div>
@@ -192,11 +193,12 @@ function CreateSpellcard({ onClick }) {
                     </select>
                     <input
                         type="number"
-                        placeholder="Spell Level"
+                        placeholder="Spell Level, 0 for cantrip"
                         value={level}
                         onChange={e => setLevel(e.target.value)}
                         min="0"
                         max="9"
+                        maxLength="1"
                         required
                     ></input>
                     <input

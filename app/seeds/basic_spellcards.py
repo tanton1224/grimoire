@@ -12,7 +12,7 @@ def seed_basic_spellcards():
                     At Higher Levels: When you cast this spell using a spell slot of 3rd level
                     or higher, the damage (both initial and later) increases by 1d4 for each
                     slot level above 2nd.''',
-        image_url='https://i.imgur.com/kbfadN4.png',
+        image_url='https://i.imgur.com/32tLmkQ.jpg',
         level=2,
         range='90 feet',
         verbal=True,
@@ -30,7 +30,7 @@ def seed_basic_spellcards():
         description='''You hurl a bubble of acid. Choose one creature within range, or choose
                     two creatures within range that are within 5 feet of each other. A target
                     must succeed on a Dexterity saving throw or take 1d6 acid damage.''',
-        image_url='https://i.imgur.com/NO9n7Ps.png',
+        image_url='https://i.imgur.com/Q5mfQyT.jpg',
         level=0,
         range='60 feet',
         verbal=True,
@@ -51,7 +51,7 @@ def seed_basic_spellcards():
                     At Higher Levels: When you cast this spell using a spell slot of 3rd level
                     or higher, a target’s hit points increase by an additional 5 for each slot
                     level above 2nd.""",
-        image_url='https://i.imgur.com/JVXCmVa.png',
+        image_url='https://i.imgur.com/1uStoTv.jpg',
         level=2,
         range='30 feet',
         verbal=True,
@@ -76,7 +76,7 @@ def seed_basic_spellcards():
                     mile of the warded area. This ping awakens you if you are sleeping.
                     An audible alarm produces the sound of a hand bell for 10 seconds within
                     60 feet""",
-        image_url='https://i.imgur.com/JVXCmVa.png',
+        image_url='https://i.imgur.com/1uStoTv.jpg',
         level=1,
         range='30 feet',
         verbal=True,
@@ -114,7 +114,7 @@ def seed_basic_spellcards():
                     natural weapon is magic and you have a +1 bonus to the attack and damage
                     rolls you make using it.
                     """,
-        image_url='https://i.imgur.com/evIsNqj.png',
+        image_url='https://i.imgur.com/zC3rsjS.jpg',
         level=2,
         range='Self',
         verbal=True,
@@ -138,7 +138,7 @@ def seed_basic_spellcards():
                     At Higher Levels: When you cast this spell using a spell slot of 2nd level
                     or higher, you can affect one additional beast for each slot level above
                     1st.""",
-        image_url='https://i.imgur.com/CfDJy0N.png',
+        image_url='https://i.imgur.com/pM9dasx.jpg',
         level=1,
         range='30 feet',
         verbal=True,
@@ -163,7 +163,7 @@ def seed_basic_spellcards():
         for other animals.\n
         At Higher Levels: If you cast this spell using a spell slot of 3rd level or higher,
         the Duration of the spell increases by 48 hours for each slot level above 2nd.""",
-        image_url='https://i.imgur.com/CfDJy0N.png',
+        image_url='https://i.imgur.com/pM9dasx.jpg',
         level=2,
         range='30 feet',
         verbal=True,
@@ -194,7 +194,7 @@ def seed_basic_spellcards():
         the nature of its new form, and it can’t speak or cast spells.\n
         The target’s gear melds into the new form. The target can’t activate, wield, or
         otherwise benefit from any of its equipment.""",
-        image_url='https://i.imgur.com/evIsNqj.png',
+        image_url='https://i.imgur.com/zC3rsjS.jpg',
         level=8,
         range='30 feet',
         verbal=True,
@@ -225,7 +225,7 @@ def seed_basic_spellcards():
         for another 24 hours, you must cast this spell on the creature again before the current
         24-hour period ends. This use of the spell reasserts your control over up to four
         creatures you have animated with this spell, rather than animating a new one.""",
-        image_url='https://i.imgur.com/eTGz7Df.png',
+        image_url='https://i.imgur.com/B5zPdZI.jpg',
         level=3,
         range='10 feet',
         verbal=True,
@@ -270,7 +270,7 @@ def seed_basic_spellcards():
         damage based on its form.\n
         At Higher Levels: If you cast this spell using a spell slot of 6th level or higher,
         you can animate two additional Objects for each slot level above 5th.""",
-        image_url='https://i.imgur.com/evIsNqj.png',
+        image_url='https://i.imgur.com/zC3rsjS.jpg',
         level=5,
         range='120 feet',
         verbal=True,
@@ -293,7 +293,7 @@ def seed_basic_spellcards():
         through the barrier.\n
         If you move so that an affected creature is forced to pass through the barrier,
         the spell ends.""",
-        image_url='https://i.imgur.com/JVXCmVa.png',
+        image_url='https://i.imgur.com/1uStoTv.jpg',
         level=5,
         range='Self (10-foot radius)',
         verbal=True,
@@ -344,7 +344,7 @@ def seed_basic_spellcards():
         Dispel Magic. Spells and magical effects such as dispel magic have no effect on the
         sphere. Likewise, the spheres created by different antimagic field spells don’t
         nullify each other.""",
-        image_url='https://i.imgur.com/JVXCmVa.png',
+        image_url='https://i.imgur.com/1uStoTv.jpg',
         level=8,
         range='Self (10-foot radius sphere)',
         verbal=True,
@@ -390,7 +390,7 @@ def seed_basic_spellcards():
         persists.\n
         A creature that successfully saves against this effect is immune to it for 1 minute,
         after which time it can be affected again.""",
-        image_url='https://i.imgur.com/CfDJy0N.png',
+        image_url='https://i.imgur.com/pM9dasx.jpg',
         level=8,
         range='60 feet',
         verbal=True,
@@ -415,7 +415,7 @@ def seed_basic_spellcards():
         existence.\n
         A solid barrier blocks the eye’s movement, but the eye can pass through an opening
         as small as 1 inch in diameter.""",
-        image_url='https://i.imgur.com/aufqUdc.png',
+        image_url='https://i.imgur.com/nIh7v2W.jpg',
         level=4,
         range='30 feet',
         verbal=True,
@@ -462,7 +462,7 @@ def seed_basic_spellcards():
         At Higher Levels. When you cast this spell using a spell slot of 6th level or higher,
         the damage from the clenched fist option increases by 2d8 and the damage from the
         grasping hand increases by 2d6 for each slot level above 5th.""",
-        image_url='https://i.imgur.com/kbfadN4.png',
+        image_url='https://i.imgur.com/32tLmkQ.jpg',
         level=5,
         range='120 feet',
         verbal=True,
@@ -485,7 +485,7 @@ def seed_basic_spellcards():
         knock on the object suppresses arcane lock for 10 minutes.\n
         While affected by this spell, the object is more difficult to break or force open;
         the DC to break it or pick any locks on it increases by 10.""",
-        image_url='https://i.imgur.com/JVXCmVa.png',
+        image_url='https://i.imgur.com/1uStoTv.jpg',
         level=2,
         range='Touch',
         verbal=True,
@@ -507,7 +507,7 @@ def seed_basic_spellcards():
         spell ends, you can use a bonus action on each of your turns to move the sword up to
         20 feet to a spot you can see and repeat this attack against the same target or a
         different one.""",
-        image_url='https://i.imgur.com/kbfadN4.png',
+        image_url='https://i.imgur.com/32tLmkQ.jpg',
         level=7,
         range='60 feet',
         verbal=True,
@@ -540,7 +540,7 @@ def seed_basic_spellcards():
         creature types, such as a paladin’s Divine Sense or the trigger of a symbol spell.
         You choose a creature type and other spells and magical effects treat the target as
         if it were a creature of that type or of that alignment.""",
-        image_url='https://i.imgur.com/gRAAL0F.png',
+        image_url='https://i.imgur.com/d7xP8Lx.jpg',
         level=2,
         range='Touch',
         verbal=True,
@@ -582,7 +582,7 @@ def seed_basic_spellcards():
         If you are returned to your body prematurely, your companions remain in their astral
         forms and must find their own way back to their bodies, usually by dropping to 0 hit
         points.""",
-        image_url='https://i.imgur.com/eTGz7Df.png',
+        image_url='https://i.imgur.com/B5zPdZI.jpg',
         level=9,
         range='10 feet',
         verbal=True,
@@ -612,7 +612,7 @@ def seed_basic_spellcards():
         If you cast the spell two or more times before completing your next long rest, there
         is a cumulative 25 percent chance for each casting after the first that you get a
         random reading. The GM makes this roll in secret.""",
-        image_url='https://i.imgur.com/aufqUdc.png',
+        image_url='https://i.imgur.com/nIh7v2W.jpg',
         level=2,
         range='Self',
         verbal=True,
@@ -639,7 +639,7 @@ def seed_basic_spellcards():
         companions do anything harmful to it. When the charmed condition ends, the awakened
         creature chooses whether to remain friendly to you, based on how you treated it
         while it was charmed.""",
-        image_url='https://i.imgur.com/evIsNqj.png',
+        image_url='https://i.imgur.com/zC3rsjS.jpg',
         level=5,
         range='Touch',
         verbal=True,
@@ -667,7 +667,7 @@ def seed_basic_spellcards():
         effects.\n
         At Higher Levels. The level of spells that can be stolen increases by 1 for every
         level of spell slot above 4th used.""",
-        image_url='https://i.imgur.com/JVXCmVa.png',
+        image_url='https://i.imgur.com/1uStoTv.jpg',
         level=3,
         range='60 feet',
         verbal=True,
