@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import { createCardThunk, getSpellsThunk } from "../../store/spellcards";
+import './CreateSpellcard.css'
+import EncyclopediaCard from "../Encyclopedia/EncyclopediaCard";
 
 function CreateSpellcard({ onClick }) {
     const dispatch = useDispatch();
@@ -33,28 +35,28 @@ function CreateSpellcard({ onClick }) {
 
     useEffect(() => {
         if (school === "abjuration") {
-            setImageUrl("https://i.imgur.com/JVXCmVa.png")
+            setImageUrl("https://i.imgur.com/1uStoTv.jpg")
         }
         if (school === 'conjuration') {
-            setImageUrl("https://i.imgur.com/NO9n7Ps.png")
+            setImageUrl("https://i.imgur.com/Q5mfQyT.jpg")
         }
         if (school === 'divination') {
-            setImageUrl("https://i.imgur.com/aufqUdc.png")
+            setImageUrl("https://i.imgur.com/nIh7v2W.jpg")
         }
         if (school === 'enchantment') {
-            setImageUrl("https://i.imgur.com/CfDJy0N.png")
+            setImageUrl("https://i.imgur.com/pM9dasx.jpg")
         }
         if (school === 'evocation') {
-            setImageUrl("https://i.imgur.com/kbfadN4.png")
+            setImageUrl("https://i.imgur.com/32tLmkQ.jpg")
         }
         if (school === 'illusion') {
-            setImageUrl("https://i.imgur.com/gRAAL0F.png")
+            setImageUrl("https://i.imgur.com/d7xP8Lx.jpg")
         }
         if (school === 'necromancy') {
-            setImageUrl("https://i.imgur.com/eTGz7Df.png")
+            setImageUrl("https://i.imgur.com/B5zPdZI.jpg")
         }
         if (school === 'transmutation') {
-            setImageUrl("https://i.imgur.com/evIsNqj.png")
+            setImageUrl("https://i.imgur.com/zC3rsjS.jpg")
         }
     }, [school])
 
@@ -157,15 +159,14 @@ function CreateSpellcard({ onClick }) {
 
     }
 
+    const toTitleCase = (string) => {
+        return string[0].toUpperCase() + string.slice(1).toLowerCase()
+    }
 
     return (
         <div className="create-spellcard-container">
             <form className="create-spellcard-form" onSubmit={handleSubmit} >
-                <div className="create-spellcard-front">
-                    <div className="spell-school-image-container">
-                        <img src={imageUrl} alt="Choose your spell school to see card preview!" />
-                    </div>
-                </div>
+                <EncyclopediaCard spell={{image_url: imageUrl, name, school, level, castingTime, range, verbal, somatic, material, duration, classes}}/>
                 <div className="create-spellcard-back">
                     <div className="spellcard-back-title">
                         <div>Create Your Spellcard</div>
@@ -192,11 +193,12 @@ function CreateSpellcard({ onClick }) {
                     </select>
                     <input
                         type="number"
-                        placeholder="Spell Level"
+                        placeholder="Spell Level, 0 for cantrip"
                         value={level}
                         onChange={e => setLevel(e.target.value)}
                         min="0"
                         max="9"
+                        maxLength="1"
                         required
                     ></input>
                     <input

@@ -1,1 +1,21 @@
 /* TODO Add site wide styles */
+@font-face {
+    font-family: "Gothic G Regular";
+    src: url('./fonts/GothicG-Regular.ttf')
+}
+
+@font-face {
+    font-family: "Gyre Bonum";
+    src: url('./fonts/TexgyrebonumRegular-87LB.otf');
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    font-family: "Gyre Bonum";
+    background-image: url("https://img.freepik.com/premium-photo/old-brown-wood-background-made-dark-natural-wood-grunge-style-natural-raw-planed-texture-pine-surface-table-shoot-flat-lay-copy-space_113111-280.jpg?w=2000");
+    background-size:contain;
+    color: #fff;
+}

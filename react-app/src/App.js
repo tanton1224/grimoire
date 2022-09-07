@@ -11,6 +11,7 @@ import { authenticate } from './store/session';
 import Encyclopedia from './components/Encyclopedia/Encyclopedia';
 import ProfileDeckDisplay from './components/ProfileDeckDisplay/ProfileDeckDisplay';
 import ProfileCardsDisplay from './components/ProfileCardsDisplay/ProfileCardsDisplay';
+import SplashPage from './components/SplashPage/SplashPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -53,7 +54,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <SplashPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
