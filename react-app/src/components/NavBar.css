@@ -23,3 +23,12 @@ nav a {
     font-size: 30px;
     color: #F3CB70;
 }
+
+.nav-options-section {
+    display: flex;
+
+}
+
+.nav-option {
+    margin-left: 20px;
+}

@@ -24,7 +24,7 @@ function Encyclopedia() {
 
     return (
         <div className="encyclopedia-outer">
-            <h1 style={{"color": "#25100B"}}>Compendium</h1>
+            <h1 style={{"color": "#25100B"}}>Encyclopedia</h1>
             <h2>Standard D&D 5E Spells</h2>
             <div className="cards-container">
                 {encyclopedia && spellcards.map(spell => {

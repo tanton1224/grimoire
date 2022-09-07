@@ -1,12 +1,17 @@
 
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { demoLogin } from '../store/session';
 import LogoutButton from './auth/LogoutButton';
 import CreateDeckFormModal from './CreateDeckFormModal';
 import CreateSpellcardModal from './CreateSpellcardModal';
 import './NavBar.css'
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user)
+
   return (
     <nav className='nav-bar-container'>
       <div className='nav-logo'>
@@ -16,12 +21,19 @@ const NavBar = () => {
         <div className='nav-option'>
           <NavLink to='/encyclopedia' exact={true}>Encyclopedia</NavLink>
         </div>
-        <div className='nav-option'>
-          <CreateDeckFormModal />
-        </div>
-        <div className='nav-option'>
-          <CreateSpellcardModal />
-        </div>
+        {user ? (<>
+          <div className='nav-option'>
+            <CreateDeckFormModal />
+          </div>
+          <div className='nav-option'>
+            <CreateSpellcardModal />
+          </div>
+          <LogoutButton />
+        </>) : (
+          <>
+          <div className='demo-login-button' onClick={() => dispatch(demoLogin())}>Demo Login</div>
+          </>
+        )}
       </div>
       {/* <ul>
         <li>
