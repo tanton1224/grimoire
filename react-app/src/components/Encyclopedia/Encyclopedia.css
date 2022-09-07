@@ -1,5 +1,12 @@
-.encyclopedia-container {
-    width: 70vw;
+.encyclopedia-outer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards-container {
+    width: 65%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
