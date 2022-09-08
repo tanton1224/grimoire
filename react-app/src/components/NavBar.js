@@ -1,9 +1,12 @@
 
 import React from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { demoLogin } from '../store/session';
+import LoginFormModal from './auth/LoginFormModal';
 import LogoutButton from './auth/LogoutButton';
+import SignUpFormModal from './auth/SignUpFormModal';
 import CreateDeckFormModal from './CreateDeckFormModal';
 import CreateSpellcardModal from './CreateSpellcardModal';
 import './NavBar.css'
@@ -11,6 +14,7 @@ import './NavBar.css'
 const NavBar = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
+  const [ showMenu, setShowMenu ] = useState(false)
 
   return (
     <nav className='nav-bar-container'>
@@ -28,10 +32,25 @@ const NavBar = () => {
           <div className='nav-option'>
             <CreateSpellcardModal />
           </div>
-          <LogoutButton />
+          <div className='nav-option-profile' id="user" onClick={() => setShowMenu(!showMenu)}>
+            <i className='fa-solid fa-circle-user fa-2xl'></i>
+          </div>
+          {showMenu &&
+          (<div className='dropdown-options'>
+            <div className='dropdown-option'>Welcome, {user.username}!</div>
+            <div className='dropdown-option active'>
+              <NavLink style={{"color": "#25100B"}} to='/profile/decks' onClick={() => setShowMenu(false)}>Your Decks</NavLink>
+            </div>
+            <div className='dropdown-option active'>
+              <NavLink style={{"color": "#25100B"}} to='/profile/spellcards' onClick={() => setShowMenu(false)}>Your Homebrew Spellcards</NavLink>
+            </div>
+            <LogoutButton onClick={() => setShowMenu(false)}/>
+          </div>)}
         </>) : (
           <>
           <div className='demo-login-button' onClick={() => dispatch(demoLogin())}>Demo Login</div>
+          <LoginFormModal />
+          <SignUpFormModal />
           </>
         )}
       </div>

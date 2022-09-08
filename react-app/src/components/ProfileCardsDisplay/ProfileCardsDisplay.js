@@ -19,7 +19,7 @@ function ProfileCardsDisplay() {
 
     useEffect(() => {
         if (!user) {
-            history.push('/login')
+            history.push('/')
         }
     })
 

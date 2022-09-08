@@ -42,21 +42,16 @@ function App() {
         <Route path='/profile/spellcards'>
           <ProfileCardsDisplay />
         </Route>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <SplashPage />
-        </ProtectedRoute>
+        </Route>
+        <h1>Error 404: Whatever you're looking for, it isn't here!</h1>
       </Switch>
       <Footer />
     </BrowserRouter>

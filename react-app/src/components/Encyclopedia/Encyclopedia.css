@@ -5,6 +5,13 @@
     align-items: center;
 }
 
+.encyclopedia-outer h1 {
+    font-size: 100px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+    font-family: "Cloister Black";
+}
+
 .cards-container {
     width: 65%;
     display: flex;

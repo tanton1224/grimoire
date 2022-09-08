@@ -5,7 +5,7 @@ function SplashPage() {
     return (
         <div className="splash-container">
             <div className="splash-header-container">
-                <h1>Welcome to <span className='title-font'>Grimoire</span>!</h1>
+                <h1>Welcome to <span className='title-font'>Grimoire</span><span style={{"font-family": "Gothic G Regular", "font-size": "40px"}}>!</span></h1>
                 <div className='splash-description'>Grimoire is a deck-building application for any DnD player or GM to organize their characters' spell lists!</div>
             </div>
             <div className='showcase-features-container'>

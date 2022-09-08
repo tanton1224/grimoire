@@ -28,7 +28,7 @@ function ProfileDeckDisplay() {
 
     useEffect(() => {
         if (!user) {
-            history.push('/login')
+            history.push('/')
         }
     })
 
