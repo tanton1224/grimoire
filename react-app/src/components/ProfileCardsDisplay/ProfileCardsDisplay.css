@@ -10,7 +10,7 @@
 
 .profile-cards-display > h1 {
     font-size: 100px;
-    margin-bottom: 0px;
+    margin-bottom: 30px;
     margin-top: 20px;
     color: #25100B;
     -webkit-text-stroke: 1px black;
@@ -21,6 +21,25 @@
 .profile-cards-container {
     width: 65%;
     display: flex;
-    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 40px;
+    justify-content: space-evenly;
+    background-color: #68040B ;
+    border-radius: 20px;
     flex-wrap: wrap;
+    box-shadow: inset 0px 0px 15px 15px #F3CB70, 0px 15px 10px rgba(0,0,0,0.7);
+    /* box-shadow: 0px 15px 10px rgba(0,0,0,0.7); */
+    border: 1px solid #F3CB70;
+}
+
+.spellcard-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.spellcard-options {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
 }

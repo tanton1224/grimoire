@@ -38,12 +38,16 @@ const NavBar = () => {
           {showMenu &&
           (<div className='dropdown-options'>
             <div className='dropdown-option'>Welcome, {user.username}!</div>
-            <div className='dropdown-option active'>
-              <NavLink style={{"color": "#25100B"}} to='/profile/decks' onClick={() => setShowMenu(false)}>Your Decks</NavLink>
-            </div>
-            <div className='dropdown-option active'>
-              <NavLink style={{"color": "#25100B"}} to='/profile/spellcards' onClick={() => setShowMenu(false)}>Your Homebrew Spellcards</NavLink>
-            </div>
+            <NavLink style={{"color": "#25100B"}} to='/profile/decks' onClick={() => setShowMenu(false)}>
+              <div className='dropdown-option active'>
+                Your Decks
+              </div>
+            </NavLink>
+            <NavLink style={{"color": "#25100B"}} to='/profile/spellcards' onClick={() => setShowMenu(false)}>
+              <div className='dropdown-option active'>
+                Your Homebrew Spellcards
+              </div>
+            </NavLink>
             <LogoutButton onClick={() => setShowMenu(false)}/>
           </div>)}
         </>) : (

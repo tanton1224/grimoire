@@ -53,7 +53,6 @@ function ProfileDeckDisplay() {
                                 <h3>{`${deck.spellcards.length} cards`}</h3>
                             </div>
                             <AddCardField deck={deck} />
-                            
                         </div>
                         {deck.spellcards !== '' ? <div className="deck-card-display">
                             {deck.spellcards.map((cardId, index) => {

@@ -8,7 +8,7 @@ function DeleteSpellcardModal({ spell }) {
 
     return (
         <>
-        <button className='delete-spellcard-button' onClick={() => setShowModal(true)}>Delete spellcard</button>
+        <div className='delete-spellcard-button' onClick={() => setShowModal(true)}>Delete</div>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
                 <DeleteSpellcard onClick={() => setShowModal(false)} spell={spell} />

@@ -1,0 +1,16 @@
+.edit-spellcard-button {
+    width: 80px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #EF611B;
+    border: none;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.edit-spellcard-button:active {
+    background-color: #d75a1c;
+}

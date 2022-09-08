@@ -34,7 +34,7 @@ function ProfileCardsDisplay() {
 
     return (
         <div className="profile-cards-display">
-            <h1>Your Homebrew Cards:</h1>
+            <h1>Your Homebrew Spells:</h1>
             <div className="profile-cards-container">
             {cards && cards.map(spell => {
                 return user?.id === spell.user_id ? (
