@@ -197,7 +197,7 @@ function CreateSpellcard({ onClick }) {
             <form className="create-spellcard-form" onSubmit={handleSubmit} >
                 <div>
                     <div className="card-preview-title">{"Spellcard Preview (Click to Flip)"}</div>
-                    <EncyclopediaCard spell={{image_url: imageUrl, name, school, level, casting_time: castingTime, range, verbal, somatic, material, duration, classes}}/>
+                    <EncyclopediaCard spell={{image_url: imageUrl, name, school, level, casting_time: castingTime, range, verbal, somatic, material, duration, classes, description}}/>
                 </div>
                 <div className="create-spellcard-back">
                     <div className="spellcard-back-title">
