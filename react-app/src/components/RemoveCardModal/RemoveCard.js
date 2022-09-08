@@ -30,8 +30,10 @@ function RemoveCard({ onClick, deck, index }) {
     return (
         <div className="remove-card-container">
             <h3>Remove this card from your deck?</h3>
-            <div onClick={handleRemoval}>Yes</div>
-            <div onClick={onClick}>No</div>
+            <div className="delete-options">
+                <div className="delete-card-option delete" onClick={handleRemoval}>Yes</div>
+                <div className="delete-card-option bottom-option" onClick={onClick}>No</div>
+            </div>
         </div>
     )
 }

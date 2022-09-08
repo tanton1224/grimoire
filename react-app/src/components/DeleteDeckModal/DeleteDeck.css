@@ -16,5 +16,16 @@
 }
 
 .delete-deck-container {
-    
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F3CB70;
+    border-radius: 10px;
+}
+
+.remove-options {
+    width: 100%;
 }

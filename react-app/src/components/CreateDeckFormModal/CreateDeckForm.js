@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
 import { createDeckThunk } from "../../store/decks";
+import './CreateDeckForm.css'
 
 
 function CreateDeckForm({ onClick }) {
@@ -12,7 +13,7 @@ function CreateDeckForm({ onClick }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        
+
         const payload = {
             user_id: user.id,
             name,
@@ -39,7 +40,7 @@ function CreateDeckForm({ onClick }) {
                 ></input>
                 <button type="submit">Create</button>
             </form>
-            <div onClick={onClick}>Cancel</div>
+            <div className="delete-card-option bottom-option" onClick={onClick}>Cancel</div>
         </div>
     )
 }
