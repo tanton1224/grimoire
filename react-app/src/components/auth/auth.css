@@ -1,0 +1,135 @@
+.logout-button {
+    color: #25100B;
+    width: 225px;
+    padding-left: 15px;
+    cursor: pointer;
+}
+
+.signup-button {
+    color: #F3CB70;
+    margin-left: 40px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-button:hover {
+    background-color: #401c13;
+}
+
+.login-button:hover {
+    background-color: #401c13;
+}
+
+.demo-login-button:hover {
+    background-color: #401c13;
+}
+
+.logout-button:hover {
+    background-color: #d5af57;
+}
+
+.demo-login-button {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F3CB70;
+    margin-left: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button {
+    color: #F3CB70;
+    margin-left: 40px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background-color: #F3CB70;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    width: 460px;
+    align-items: center;
+    background-color: #F3CB70;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.login-form {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.signup-form {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.login-form input {
+    width: 97.8%;
+    height: 40px;
+    border: 1px solid #25100B;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #25100B;
+    font-size: 16px;
+    font-family: 'Gyre Bonum';
+}
+
+.signup-form input {
+    width: 97.8%;
+    height: 40px;
+    border: 1px solid #25100B;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #25100B;
+    font-size: 16px;
+    font-family: 'Gyre Bonum';
+}
+
+.login-submit-button {
+    height: 40px;
+    background-color: #25100B;
+    color: #F3CB70;
+    border-radius: 20px;
+    font-family: 'Gyre Bonum';
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup-submit-button {
+    height: 30px;
+    background-color: #25100B;
+    color: #F3CB70;
+    border-radius: 5px;
+    font-family: 'Gyre Bonum';
+    font-weight: bold;
+    cursor: pointer;
+}

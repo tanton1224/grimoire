@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Select from "react-select"
 import { updateDeckThunk } from "../../store/decks";
+import DeleteDeckModal from "../DeleteDeckModal";
+import Select from "react-select"
+import './AddCardField.css'
 
 function AddCardField({ deck }) {
     const dispatch = useDispatch();
@@ -70,16 +72,19 @@ function AddCardField({ deck }) {
 
     return (
         <form className="add-card-form" onSubmit={handleAdd}>
-        <Select
-            id="add-card-form"
-            value={chosenCard}
-            placeholder="Select a card to add..."
-            onChange={value => setChosenCard(value)}
-            options={options}
-            className="add-card-select"
-        />
-        {hasErrors && <div className="add-card-errors">Must pick a card to add! Please pick a card and try again.</div>}
-        <button type="submit">Add to deck</button>
+            <Select
+                id="add-card-form"
+                value={chosenCard}
+                placeholder="Select a card to add..."
+                onChange={value => setChosenCard(value)}
+                options={options}
+                className="add-card-select"
+            />
+            {hasErrors && <div className="add-card-errors">Must pick a card to add! Please pick a card and try again.</div>}
+            <div className="select-card-buttons">
+                <button className="select-submit-button" type="submit">Add to deck</button>
+                <DeleteDeckModal deck={deck} />
+            </div>
         </form>
 
     )

@@ -1,14 +1,19 @@
+.create-spellcard-button {
+    color: #F3CB70;
+}
+
 .create-spellcard-form {
     width: 850px;
-    height: 550px;
+    height: 585px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.create-card-front {
+.card-preview-title {
+    width: 100%;
     display: flex;
-    align-items: center;
+    justify-content: center;
 }
 
 .create-spellcard-back {

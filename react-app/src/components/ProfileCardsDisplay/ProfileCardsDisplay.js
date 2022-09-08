@@ -5,6 +5,7 @@ import { getSpellsThunk } from "../../store/spellcards";
 import DeleteSpellcardModal from "../DeleteSpellcardModal";
 import EditSpellcardModal from "../EditSpellcardModal";
 import EncyclopediaCard from "../Encyclopedia/EncyclopediaCard";
+import './ProfileCardsDisplay.css'
 
 
 function ProfileCardsDisplay() {
@@ -14,12 +15,12 @@ function ProfileCardsDisplay() {
     const homebrew = useSelector(state => state.spellcards?.homebrew);
     let cards;
     if (homebrew) {
-        cards = Object.values(homebrew)
+        cards = Object.values(homebrew).reverse()
     }
 
     useEffect(() => {
         if (!user) {
-            history.push('/login')
+            history.push('/')
         }
     })
 
@@ -33,14 +34,16 @@ function ProfileCardsDisplay() {
 
     return (
         <div className="profile-cards-display">
-            <h1>Your Homebrew Cards:</h1>
+            <h1>Your Homebrew Spells:</h1>
             <div className="profile-cards-container">
             {cards && cards.map(spell => {
                 return user?.id === spell.user_id ? (
-                    <div>
-                    <EncyclopediaCard spell={spell} />
-                    <EditSpellcardModal spell={spell}/>
-                    <DeleteSpellcardModal spell={spell}/>
+                    <div className="spellcard-container">
+                        <div className="spellcard-options">
+                            <EditSpellcardModal spell={spell}/>
+                            <DeleteSpellcardModal spell={spell}/>
+                        </div>
+                        <EncyclopediaCard spell={spell} />
                     </div>
                 ) : ''
             })}

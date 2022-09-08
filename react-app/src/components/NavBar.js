@@ -1,14 +1,64 @@
 
 import React from 'react';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { demoLogin } from '../store/session';
+import LoginFormModal from './auth/LoginFormModal';
 import LogoutButton from './auth/LogoutButton';
+import SignUpFormModal from './auth/SignUpFormModal';
 import CreateDeckFormModal from './CreateDeckFormModal';
 import CreateSpellcardModal from './CreateSpellcardModal';
+import './NavBar.css'
 
 const NavBar = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user)
+  const [ showMenu, setShowMenu ] = useState(false)
+
   return (
     <nav className='nav-bar-container'>
-      <ul>
+      <div className='nav-logo'>
+        <NavLink to='/' exact={true}>Grimoire</NavLink>
+      </div>
+      <div className='nav-options-section'>
+        <div className='nav-option'>
+          <NavLink to='/encyclopedia' exact={true}>Encyclopedia</NavLink>
+        </div>
+        {user ? (<>
+          <div className='nav-option'>
+            <CreateDeckFormModal />
+          </div>
+          <div className='nav-option'>
+            <CreateSpellcardModal />
+          </div>
+          <div className='nav-option-profile' id="user" onClick={() => setShowMenu(!showMenu)}>
+            <i className='fa-solid fa-circle-user fa-2xl'></i>
+          </div>
+          {showMenu &&
+          (<div className='dropdown-options'>
+            <div className='dropdown-option'>Welcome, {user.username}!</div>
+            <NavLink style={{"color": "#25100B"}} to='/profile/decks' onClick={() => setShowMenu(false)}>
+              <div className='dropdown-option active'>
+                Your Decks
+              </div>
+            </NavLink>
+            <NavLink style={{"color": "#25100B"}} to='/profile/spellcards' onClick={() => setShowMenu(false)}>
+              <div className='dropdown-option active'>
+                Your Homebrew Spellcards
+              </div>
+            </NavLink>
+            <LogoutButton onClick={() => setShowMenu(false)}/>
+          </div>)}
+        </>) : (
+          <>
+          <div className='demo-login-button' onClick={() => dispatch(demoLogin())}>Demo Login</div>
+          <LoginFormModal />
+          <SignUpFormModal />
+          </>
+        )}
+      </div>
+      {/* <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
@@ -53,7 +103,7 @@ const NavBar = () => {
         <li>
           <LogoutButton />
         </li>
-      </ul>
+      </ul> */}
     </nav>
   );
 }

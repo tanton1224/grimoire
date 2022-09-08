@@ -1,0 +1,24 @@
+.footer {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    background-color: #F3CB70;
+    border-top: 2px solid black;
+    color: #25100B;
+}
+
+.personal-links {
+    width: 300px;
+    display: flex;
+
+    justify-content: space-between;
+}
+
+.personal-links > a {
+    text-decoration: none;
+    color: #25100B;
+}

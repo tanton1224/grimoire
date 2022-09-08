@@ -9,7 +9,7 @@ function RemoveCardModal({ deck, spell, index }) {
 
     return (
         <>
-        <div className='remove-card-button' onClick={() => setShowModal(true)}><i class="fa-solid fa-trash-can"></i></div>
+        <div className='remove-card-button' onClick={() => setShowModal(true)}><i class="fa-solid fa-trash-can fa-2xl"></i></div>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
                 <RemoveCard onClick={() => setShowModal(false)} deck={deck} index={index} />

@@ -1,16 +1,96 @@
 .splash-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-left: 0px;
     margin-right: 0px;
 }
 
-.splash-image-container {
+.splash-header-container {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    justify-content: center;
+    height: 600px;
+    background-image: url("https://images.squarespace-cdn.com/content/v1/5f8a7f6ce7e6c83bd00002f4/1604782480312-TOREECY0FP29FKHWA9R4/hero_dmgscreen_0.jpg");
+    background-size: cover;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 30px;
+    border-bottom: 3px solid black;
 }
 
-.splash-header-image {
+.splash-header {
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.title-font {
+    font-family: 'Gothic G Regular';
+    color: #F3CB70;
+    font-size: 50px;
+}
+
+.splash-description {
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.showcase-features-container {
+    background-color: #25100b;
     width: 100%;
-    object-fit:fill;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-left: 200px;
+    padding-right: 200px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    /* border: 3px solid black; */
+    color: #F3CB70;
+    height: 600px;
+}
+
+.showcase-features-title {
+    font-size: 40px;
+    margin-bottom: 25px;
+    font-family: 'Cloister Black';
+}
+
+.feature-images-container {
+    width: 500px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.feature-image {
+    padding: 10px;
+    background-color: #F3CB70;
+    border-radius: 50%;
+}
+
+.feature-desc-container {
+    width: 500px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.feature-desc-container > ul {
+    width: 250px;
+    font-size: 25px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-desc-container li {
+    font-size: 15px;
 }

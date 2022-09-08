@@ -63,8 +63,8 @@ function CreateSpellcard({ onClick }) {
     useEffect(() => {
         const newErrors = {}
 
-        if (name.length >= 50) {
-            newErrors.name = "Spell name character limit reached (50)"
+        if (name.length >= 30) {
+            newErrors.name = "Spell name character limit reached (30)"
         }
         if (castingTime.length >= 25) {
             newErrors.castingTime = "Casting Time character limit reached (25)"
@@ -89,6 +89,35 @@ function CreateSpellcard({ onClick }) {
             setErrors({})
         }
     }, [name, castingTime, range, material, duration, description])
+
+    useEffect(() => {
+        let newClasses = []
+
+        if (bard) {
+            newClasses.push('Bard')
+        }
+        if (cleric) {
+            newClasses.push('Cleric')
+        }
+        if (druid) {
+            newClasses.push('Druid')
+        }
+        if (paladin) {
+            newClasses.push('Paladin')
+        }
+        if (sorcerer) {
+            newClasses.push('Sorcerer')
+        }
+        if (warlock) {
+            newClasses.push('Warlock')
+        }
+        if (wizard) {
+            newClasses.push('Wizard')
+        }
+
+        setClasses(newClasses)
+
+    }, [bard, cleric, druid, paladin, sorcerer, warlock, wizard])
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -166,7 +195,10 @@ function CreateSpellcard({ onClick }) {
     return (
         <div className="create-spellcard-container">
             <form className="create-spellcard-form" onSubmit={handleSubmit} >
-                <EncyclopediaCard spell={{image_url: imageUrl, name, school, level, castingTime, range, verbal, somatic, material, duration, classes}}/>
+                <div>
+                    <div className="card-preview-title">{"Spellcard Preview (Click to Flip)"}</div>
+                    <EncyclopediaCard spell={{image_url: imageUrl, name, school, level, casting_time: castingTime, range, verbal, somatic, material, duration, classes}}/>
+                </div>
                 <div className="create-spellcard-back">
                     <div className="spellcard-back-title">
                         <div>Create Your Spellcard</div>
@@ -176,7 +208,7 @@ function CreateSpellcard({ onClick }) {
                         placeholder="Spell Name"
                         value={name}
                         onChange={e => setName(e.target.value)}
-                        maxLength="50"
+                        maxLength="30"
                         required
                     ></input>
                     {errors.name && <div className="create-spell-error">{errors.name}</div>}

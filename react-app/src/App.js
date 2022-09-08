@@ -12,6 +12,7 @@ import Encyclopedia from './components/Encyclopedia/Encyclopedia';
 import ProfileDeckDisplay from './components/ProfileDeckDisplay/ProfileDeckDisplay';
 import ProfileCardsDisplay from './components/ProfileCardsDisplay/ProfileCardsDisplay';
 import SplashPage from './components/SplashPage/SplashPage';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -34,6 +35,7 @@ function App() {
       <Switch>
         <Route path='/encyclopedia'>
           <Encyclopedia />
+          <Footer />
         </Route>
         <Route path='/profile/decks'>
           <ProfileDeckDisplay />
@@ -41,21 +43,17 @@ function App() {
         <Route path='/profile/spellcards'>
           <ProfileCardsDisplay />
         </Route>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <SplashPage />
-        </ProtectedRoute>
+          <Footer />
+        </Route>
+        <h1>Error 404: Whatever you're looking for, it isn't here!</h1>
       </Switch>
     </BrowserRouter>
   );

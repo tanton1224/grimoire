@@ -1,0 +1,9 @@
+.remove-card-button {
+    margin-top: 25px;
+    transition: transform .5s;
+}
+
+.remove-card-button:hover {
+    transform: translateY(-30px);
+    transform: scale(1.06);
+}
