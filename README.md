@@ -1,4 +1,6 @@
 # Grimoire
+Grimoire is a website built for DnD Players and Game Masters to create decks of spells for their characters. Grimoire provides tools for users to quickly add and remove their favorite classic 5E spells to their decks. Users are also able to create their own homebrew spellcards and add them to their decks.
+
 
 ## Tech Stack
 ### Frameworks, Platforms, and Libraries:
