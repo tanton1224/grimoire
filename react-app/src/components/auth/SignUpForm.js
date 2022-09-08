@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
@@ -6,6 +6,7 @@ import './auth.css'
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
+  const [lengthErrors, setLengthErrors] = useState({})
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -26,6 +27,29 @@ const SignUpForm = () => {
       }
     }
   };
+
+  useEffect(() => {
+    const newErrors = {}
+
+    if (username.length >= 25) {
+      newErrors.username = "Name character limit reached (25)"
+    }
+    if (email.length >= 50) {
+      newErrors.email = "Email character limit reached (50)"
+    }
+    if (password.length >= 25) {
+      newErrors.password = "Password character limit reached (25)"
+    }
+    if (repeatPassword.length >= 25) {
+      newErrors.repeatPassword = "Confirm Password character limit reached (25)"
+    }
+
+    if (Object.values(newErrors).length > 0) {
+      setLengthErrors(newErrors)
+    } else {
+      setLengthErrors({})
+    }
+  }, [username, email, repeatPassword, password])
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -63,9 +87,12 @@ const SignUpForm = () => {
             placeholder='Username'
             onChange={updateUsername}
             value={username}
+            minLength="4"
+            maxLength="25"
             required
           ></input>
         </div>
+        {lengthErrors.username && <div>{lengthErrors.username}</div>}
         <div>
           <input
             type='text'
@@ -73,9 +100,11 @@ const SignUpForm = () => {
             placeholder='Email'
             onChange={updateEmail}
             value={email}
+            maxLength="50"
             required
           ></input>
         </div>
+        {lengthErrors.email && <div>{lengthErrors.email}</div>}
         <div>
           <input
             type='password'
@@ -83,9 +112,12 @@ const SignUpForm = () => {
             placeholder='Password'
             onChange={updatePassword}
             value={password}
+            minLength="4"
+            maxLength="25"
             required
           ></input>
         </div>
+        {lengthErrors.password && <div>{lengthErrors.password}</div>}
         <div>
           <input
             type='password'
@@ -93,9 +125,12 @@ const SignUpForm = () => {
             placeholder='Confirm Password'
             onChange={updateRepeatPassword}
             value={repeatPassword}
-            required={true}
+            minLength="4"
+            maxLength="25"
+            required
           ></input>
         </div>
+        {lengthErrors.repeatPassword && <div>{lengthErrors.repeatPassword}</div>}
         <button className="signup-submit-button" type='submit'>Sign Up</button>
       </form>
     </div>

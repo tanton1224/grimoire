@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useEffect, useState } from "react";
 import { createCardThunk, getSpellsThunk, updateCardThunk } from "../../store/spellcards";
 import EncyclopediaCard from "../Encyclopedia/EncyclopediaCard";
+import './EditSpellcard.css'
 
 function EditSpellcard({ onClick, spell }) {
     const dispatch = useDispatch();
