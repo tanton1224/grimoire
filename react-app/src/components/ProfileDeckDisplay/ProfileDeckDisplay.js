@@ -48,10 +48,12 @@ function ProfileDeckDisplay() {
                 return user.id === deck.user_id ? (
                     <div className="deck-display">
                         <div className="deck-header">
-                            <h3>{deck.name}</h3>
-                            <DeleteDeckModal deck={deck} />
+                            <div className="deck-header-info">
+                                <h2>{deck.name}</h2>
+                                <h3>{`${deck.spellcards.length} cards`}</h3>
+                            </div>
                             <AddCardField deck={deck} />
-                            <h3>{`${deck.spellcards.length} cards`}</h3>
+                            
                         </div>
                         {deck.spellcards !== '' ? <div className="deck-card-display">
                             {deck.spellcards.map((cardId, index) => {

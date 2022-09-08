@@ -35,6 +35,7 @@ function App() {
       <Switch>
         <Route path='/encyclopedia'>
           <Encyclopedia />
+          <Footer />
         </Route>
         <Route path='/profile/decks'>
           <ProfileDeckDisplay />
@@ -50,10 +51,10 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <SplashPage />
+          <Footer />
         </Route>
         <h1>Error 404: Whatever you're looking for, it isn't here!</h1>
       </Switch>
-      <Footer />
     </BrowserRouter>
   );
 }

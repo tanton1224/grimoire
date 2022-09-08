@@ -38,10 +38,12 @@ function ProfileCardsDisplay() {
             <div className="profile-cards-container">
             {cards && cards.map(spell => {
                 return user?.id === spell.user_id ? (
-                    <div>
-                    <EncyclopediaCard spell={spell} />
-                    <EditSpellcardModal spell={spell}/>
-                    <DeleteSpellcardModal spell={spell}/>
+                    <div className="spellcard-container">
+                        <div className="spellcard-options">
+                            <EditSpellcardModal spell={spell}/>
+                            <DeleteSpellcardModal spell={spell}/>
+                        </div>
+                        <EncyclopediaCard spell={spell} />
                     </div>
                 ) : ''
             })}
