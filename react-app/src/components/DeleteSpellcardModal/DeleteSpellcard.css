@@ -50,4 +50,5 @@
 
 .bottom-option {
     border-radius: 0 0px 10px 10px;
+    cursor: pointer;
 }
