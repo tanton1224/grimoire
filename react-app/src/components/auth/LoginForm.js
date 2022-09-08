@@ -47,6 +47,7 @@ const LoginForm = () => {
             placeholder='Email'
             value={email}
             onChange={updateEmail}
+            required
           />
         </div>
         <div className='login-input-div'>
@@ -56,6 +57,7 @@ const LoginForm = () => {
             placeholder='Password'
             value={password}
             onChange={updatePassword}
+            required
           />
         </div>
         <button className="login-submit-button" type='submit'>Login</button>

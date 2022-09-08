@@ -14,12 +14,31 @@ const SignUpForm = () => {
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
 
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/
+      );
+  };
+
   const onSignUp = async (e) => {
+    e.preventDefault();
+
+    const newErrors = []
     if (password !== repeatPassword) {
-      setErrors(["Error confirmPassword: Password and confirm password do not match"])
+      newErrors.push("Password and confirm password do not match!")
     }
 
-    e.preventDefault();
+    if (!validateEmail(email)) {
+      newErrors.push("Please enter a valid email!")
+    }
+
+    if (newErrors.length > 0) {
+      setErrors(newErrors)
+      return
+    }
+
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
@@ -66,6 +85,8 @@ const SignUpForm = () => {
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
   };
+
+
 
   if (user) {
     return <Redirect to='/' />;

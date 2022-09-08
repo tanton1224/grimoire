@@ -306,6 +306,7 @@ function CreateSpellcard({ onClick }) {
                         value={duration}
                         onChange={e => setDuration(e.target.value)}
                         maxLength="25"
+                        required
                     ></input>
                     {errors.duration && <div className="create-spell-error">{errors.duration}</div>}
                     <textarea
@@ -313,6 +314,7 @@ function CreateSpellcard({ onClick }) {
                         value={description}
                         onChange={e => setDescription(e.target.value)}
                         maxLength="2000"
+                        required
                     ></textarea>
                     {errors.description && <div className="create-spell-error">{errors.description}</div>}
                     <div className="class-selector-container">
