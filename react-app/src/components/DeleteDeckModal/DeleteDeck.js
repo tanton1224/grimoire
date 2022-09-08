@@ -14,8 +14,10 @@ function DeleteDeck({ onClick, deck}) {
         <div className="delete-deck-container">
             <h3>Permanently delete deck?</h3>
             <div>This cannot be undone.</div>
-            <div onClick={handleDelete}>Delete</div>
-            <div onClick={onClick}>Cancel</div>
+            <div className="delete-options">
+                <div className="delete-card-option delete" onClick={handleDelete}>Delete</div>
+                <div className="delete-card-option bottom-option" onClick={onClick}>Cancel</div>
+            </div>
         </div>
     )
 }
