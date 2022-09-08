@@ -5,6 +5,7 @@ import { getSpellsThunk } from "../../store/spellcards";
 import DeleteSpellcardModal from "../DeleteSpellcardModal";
 import EditSpellcardModal from "../EditSpellcardModal";
 import EncyclopediaCard from "../Encyclopedia/EncyclopediaCard";
+import './ProfileCardsDisplay.css'
 
 
 function ProfileCardsDisplay() {
@@ -14,7 +15,7 @@ function ProfileCardsDisplay() {
     const homebrew = useSelector(state => state.spellcards?.homebrew);
     let cards;
     if (homebrew) {
-        cards = Object.values(homebrew)
+        cards = Object.values(homebrew).reverse()
     }
 
     useEffect(() => {

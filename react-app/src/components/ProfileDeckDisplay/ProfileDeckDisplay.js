@@ -23,7 +23,7 @@ function ProfileDeckDisplay() {
         spells = {...basic, ...homebrew};
     }
     if (decksObj) {
-        decks = Object.values(decksObj);
+        decks = Object.values(decksObj).reverse();
     }
 
     useEffect(() => {
