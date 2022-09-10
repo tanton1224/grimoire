@@ -151,4 +151,5 @@
     margin-bottom: 10px;
     border-top: 1px dashed black;
     word-break: break-word;
+    white-space: pre-line;
 }
