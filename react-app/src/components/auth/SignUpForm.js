@@ -18,9 +18,23 @@ const SignUpForm = () => {
     return String(email)
       .toLowerCase()
       .match(
-        /^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/
+        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
       );
   };
+
+  // const validateEmail = (email) => {
+  //   if (!email.includes('@')) {
+  //     return false
+  //   }
+
+  //   if (email.split('@').length > 2) {
+  //     return false
+  //   }
+
+  //   if (!email.includes('.com') || !email.includes('.io') || !email.includes('.net')) {
+  //     return false
+  //   }
+  // }
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -37,6 +51,8 @@ const SignUpForm = () => {
     if (newErrors.length > 0) {
       setErrors(newErrors)
       return
+    } else {
+      setErrors([])
     }
 
     if (password === repeatPassword) {

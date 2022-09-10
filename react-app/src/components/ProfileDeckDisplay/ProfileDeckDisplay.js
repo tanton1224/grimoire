@@ -41,10 +41,20 @@ function ProfileDeckDisplay() {
         return string[0].toUpperCase() + string.slice(1).toLowerCase()
     }
 
+    const userHasDecks = (decks, user) => {
+        let hasDecks = false
+        decks.forEach(deck => {
+            if (deck.user_id === user.id) {
+                hasDecks = true
+            }
+        })
+        return hasDecks
+    }
+
     return (
         <div className="deck-display-container">
             <h1>Your Decks:</h1>
-            {decks && spells && decks.map(deck => {
+            {decks && spells && userHasDecks(decks, user) ? decks.map(deck => {
                 return user?.id === deck.user_id ? (
                     <div className="deck-display">
                         <div className="deck-header">
@@ -64,10 +74,10 @@ function ProfileDeckDisplay() {
                                     </div>
                                 )
                             })}
-                        </div> : <div>No cards yet! Go ahead and add some!</div>}
+                        </div> : <div className="empty-cards-message">No cards yet! Go ahead and add some!</div>}
                     </div>
                 ) : ''
-            })}
+            }) : <div className="empty-deck-display">No decks yet! Go ahead and create some!</div>}
         </div>
     )
 }

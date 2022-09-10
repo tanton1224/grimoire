@@ -45,7 +45,7 @@ function ProfileCardsDisplay() {
                         </div>
                         <EncyclopediaCard spell={spell} />
                     </div>
-                ) : ''
+                ) : <div className="empty-cards-message">No cards yet! Go ahead and create some!</div>
             })}
             </div>
         </div>

@@ -12,7 +12,7 @@
     font-size: 100px;
     margin-bottom: 30px;
     margin-top: 20px;
-    color: #25100B;
+    color: #F3CB70;
     -webkit-text-stroke: 1px black;
     text-shadow: 0px 3px 3px rgba(0,0,0,0.7);
     font-family: "Cloister Black";
@@ -31,8 +31,21 @@
     border-radius: 20px;
     flex-wrap: wrap;
     box-shadow: inset 0px 0px 15px 15px #F3CB70, 0px 15px 10px rgba(0,0,0,0.7);
-    /* box-shadow: 0px 15px 10px rgba(0,0,0,0.7); */
     border: 1px solid #F3CB70;
+}
+
+.empty-deck-display {
+    width: 65%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #68040B ;
+    border-radius: 20px;
+    flex-wrap: wrap;
+    box-shadow: inset 0px 0px 15px 15px #F3CB70, 0px 15px 10px rgba(0,0,0,0.7);
+    border: 1px solid #F3CB70;
+    color: #F3CB70;
 }
 
 .deck-header-info {
@@ -51,4 +64,8 @@
 
 .deck-card-container {
     display: flex;
+}
+
+.empty-cards-message {
+    color: #F3CB70;
 }

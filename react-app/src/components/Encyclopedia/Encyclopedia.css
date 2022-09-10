@@ -12,7 +12,7 @@
     font-size: 100px;
     margin-bottom: 0px;
     margin-top: 10px;
-    color: #25100B;
+    color: #F3CB70;
     -webkit-text-stroke: 1px black;
     text-shadow: 0px 3px 3px rgba(0,0,0,0.7);
     font-family: "Cloister Black";
@@ -151,4 +151,5 @@
     margin-bottom: 10px;
     border-top: 1px dashed black;
     word-break: break-word;
+    white-space: pre-line;
 }

@@ -15,6 +15,7 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
+      console.log(data)
       setErrors(data);
     }
   };
@@ -29,7 +30,7 @@ const LoginForm = () => {
 
   if (user) {
     return <Redirect to='/' />;
-  }
+  };
 
   return (
     <div className='login-container'>
