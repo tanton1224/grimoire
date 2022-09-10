@@ -119,6 +119,12 @@ function CreateSpellcard({ onClick }) {
 
     }, [bard, cleric, druid, paladin, sorcerer, warlock, wizard])
 
+    useEffect(() => {
+        if (!materialField) {
+            setMaterial('')
+        }
+    }, [materialField])
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
