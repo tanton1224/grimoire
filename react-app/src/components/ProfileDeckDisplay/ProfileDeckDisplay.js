@@ -30,7 +30,7 @@ function ProfileDeckDisplay() {
         if (!user) {
             history.push('/')
         }
-    })
+    }, [user])
 
     useEffect(() => {
         dispatch(getDecksThunk())
@@ -44,7 +44,7 @@ function ProfileDeckDisplay() {
     const userHasDecks = (decks, user) => {
         let hasDecks = false
         decks.forEach(deck => {
-            if (deck.user_id === user.id) {
+            if (deck.user_id === user?.id) {
                 hasDecks = true
             }
         })
