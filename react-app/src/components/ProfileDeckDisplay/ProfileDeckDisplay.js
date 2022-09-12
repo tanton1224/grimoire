@@ -49,7 +49,7 @@ function ProfileDeckDisplay() {
             }
         })
         return hasDecks
-    }
+    };
 
     return (
         <div className="deck-display-container">
