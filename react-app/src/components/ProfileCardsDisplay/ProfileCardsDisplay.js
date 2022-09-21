@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getSpellsThunk } from "../../store/spellcards";
@@ -13,6 +13,7 @@ function ProfileCardsDisplay() {
     const history = useHistory();
     const user = useSelector(state => state.session.user)
     const homebrew = useSelector(state => state.spellcards?.homebrew);
+    const [query, setQuery] = useState('')
     let cards;
     if (homebrew) {
         cards = Object.values(homebrew).reverse()
@@ -32,11 +33,22 @@ function ProfileCardsDisplay() {
         return string[0].toUpperCase() + string.slice(1).toLowerCase()
     }
 
+    const filteredCards = cards.filter(card => {
+        if (query === '') return card;
+        else if (card.name.toLowerCase().includes(query.toLowerCase())) return card;
+    })
+
     return (
         <div className="profile-cards-display">
             <h1>Your Homebrew Spells:</h1>
+            <input
+                type="text"
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                placeholder="Search for a spell..."
+            />
             <div className="profile-cards-container">
-            {cards && cards.map(spell => {
+            {cards && filteredCards.map(spell => {
                 return user?.id === spell.user_id ? (
                     <div className="spellcard-container">
                         <div className="spellcard-options">

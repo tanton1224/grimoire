@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDecksThunk } from "../../store/decks";
 import { getSpellsThunk } from "../../store/spellcards";
@@ -17,6 +17,8 @@ function ProfileDeckDisplay() {
     const decksObj = useSelector(state => state.decks);
     const basic = useSelector(state => state.spellcards?.encyclopedia);
     const homebrew = useSelector(state => state.spellcards?.homebrew);
+    const [query, setQuery] = useState('')
+
     let spells;
     let decks;
     if (basic && homebrew) {
@@ -51,10 +53,21 @@ function ProfileDeckDisplay() {
         return hasDecks
     };
 
+    const filteredDecks = decks.filter(deck => {
+        if (query === '') return deck;
+        else if (deck.name.toLowerCase().includes(query.toLowerCase())) return deck;
+    })
+
     return (
         <div className="deck-display-container">
             <h1>Your Decks:</h1>
-            {decks && spells && userHasDecks(decks, user) ? decks.map(deck => {
+            <input
+                type="text"
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                placeholder="Search for a deck..."
+            />
+            {decks && spells && userHasDecks(decks, user) ? filteredDecks.map(deck => {
                 return user?.id === deck.user_id ? (
                     <div className="deck-display">
                         <div className="deck-header">
