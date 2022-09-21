@@ -18,10 +18,19 @@
     font-family: "Cloister Black";
 }
 
+.encyclopedia-outer input {
+    width: 64%;
+    height: 50px;
+    font-size: 18px;
+    font-family: "Gyre Bonum";
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
 .cards-container {
     width: 65%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 

@@ -30,13 +30,7 @@ function EditSpellcard({ onClick, spell }) {
     const [ sorcerer, setSorcerer ] = useState(spell.classes.includes('Sorcerer'))
     const [ warlock, setWarlock ] = useState(spell.classes.includes('Warlock'))
     const [ wizard, setWizard ] = useState(spell.classes.includes('Wizard'))
-    const [ bardCheck, setBardCheck ] = useState(spell.classes.includes('Bard'))
-    const [ clericCheck, setClericCheck ] = useState(spell.classes.includes('Cleric'))
-    const [ druidCheck, setDruidCheck ] = useState(spell.classes.includes('Druid'))
-    const [ paladinCheck, setPaladinCheck ] = useState(spell.classes.includes('Paladin'))
-    const [ sorcererCheck, setSorcererCheck ] = useState(spell.classes.includes('Sorcerer'))
-    const [ warlockCheck, setWarlockCheck ] = useState(spell.classes.includes('Warlock'))
-    const [ wizardCheck, setWizardCheck ] = useState(spell.classes.includes('Wizard'))
+
     const [ classes, setClasses ] = useState([])
     const [ errors, setErrors ] = useState({})
 

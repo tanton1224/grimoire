@@ -18,6 +18,15 @@
     font-family: "Cloister Black";
 }
 
+.deck-display-container input {
+    width: 64%;
+    height: 50px;
+    font-size: 18px;
+    font-family: "Gyre Bonum";
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
 .deck-display {
     width: 65%;
     display: flex;
