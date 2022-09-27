@@ -1,7 +1,15 @@
+from email.policy import default
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+friend_connections = db.Table(
+    "friend_connections",
+    db.Model.metadata,
+    db.Column("from_user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
+    db.Column("to_user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
+    db.Column("accepted", db.Boolean, default=False)
+)
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -14,6 +22,10 @@ class User(db.Model, UserMixin):
 
     decks = db.relationship('Deck', back_populates='user')
     spellcards = db.relationship('Spellcard', back_populates='user')
+    friends = db.relationship("User", secondary=friend_connections,
+                           primaryjoin=id==friend_connections.c.from_user_id,
+                           secondaryjoin=id==friend_connections.c.to_user_id,
+    )
 
     @property
     def password(self):

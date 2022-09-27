@@ -652,6 +652,443 @@ def seed_basic_spellcards():
         school='transmutation',
         classes='bard,druid'
     )
+    spell022 = Spellcard(
+        name='Bane',
+        description="""Up to three creatures of your choice that you can see within range
+        must make Charisma saving throws. Whenever a target that fails this saving throw
+        makes an attack roll or a saving throw before the spell ends, the target must roll
+        a d4 and subtract the number rolled from the attack roll or saving throw.\n
+        At Higher Levels: When you cast this spell using a spell slot of 2nd level or
+        higher, you can target one additional creature for each slot level above 1st.""",
+        image_url='https://i.imgur.com/pM9dasx.jpg',
+        level=1,
+        range='30 feet',
+        verbal=True,
+        somatic=True,
+        material="A drop of blood",
+        ritual=False,
+        duration='Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='enchantment',
+        classes='bard,cleric'
+    )
+    spell023 = Spellcard(
+        name='Banishment',
+        description="""You attempt to send one creature that you can see within range to
+        another plane of existence. The target must succeed on a Charisma saving throw or
+        be banished. If the target is native to the plane of existence you’re on, you banish
+        the target to a harmless demiplane. While there, the target is incapacitated. The
+        target remains there until the spell ends, at which point the target reappears in the
+        space it left or in the nearest unoccupied space if that space is occupied. If the
+        target is native to a different plane of existence than the one you’re on, the target
+        is banished with a faint popping noise, returning to its home plane. If the spell
+        ends before 1 minute has passed, the target reappears in the space it left or in
+        the nearest unoccupied space if that space is occupied. Otherwise, the target doesn’t
+        return.\n
+        At Higher Levels: When you cast this spell using a spell slot of 5th level or higher,
+        you can target one additional creature for each slot level above 4th.""",
+        image_url='https://i.imgur.com/1uStoTv.jpg',
+        level=4,
+        range='60 feet',
+        verbal=True,
+        somatic=True,
+        material="An item distasteful to the target",
+        ritual=False,
+        duration='Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='abjuration',
+        classes='paladin,cleric,sorcerer,warlock,wizard'
+    )
+    spell024 = Spellcard(
+        name='Barkskin',
+        description="""You touch a willing creature. Until the spell ends, the target’s skin
+        has a rough, bark-like appearance, and the target’s AC can’t be less than 16, regardless
+        of what kind of armor it is wearing.""",
+        image_url='https://i.imgur.com/zC3rsjS.jpg',
+        level=2,
+        range='Touch',
+        verbal=True,
+        somatic=True,
+        material="A handful of oak bark",
+        ritual=False,
+        duration='Up to 1 hour',
+        concentration=True,
+        casting_time='1 action',
+        school='transmutation',
+        classes='druid,ranger'
+    )
+    spell025 = Spellcard(
+        name='Beacon of Hope',
+        description="""This spell bestows hope and vitality. Choose any number of creatures
+        within range. For the duration, each target has advantage on Wisdom saving throws and
+        death saving throws, and regains the maximum number of hit points possible from any
+        healing.""",
+        image_url='https://i.imgur.com/1uStoTv.jpg',
+        level=3,
+        range='30 feet',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='abjuration',
+        classes='cleric'
+    )
+    spell026 = Spellcard(
+        name='Bestow Curse',
+        description="""You touch a creature, and that creature must succeed on a Wisdom
+        saving throw or become cursed for the duration of the spell. When you cast this
+        spell, choose the nature of the curse from the following options: Choose one ability
+        score. While cursed, the target has disadvantage on ability checks and saving throws
+        made with that ability score. While cursed, the target has disadvantage on attack
+        rolls against you. While cursed, the target must make a Wisdom saving throw at the
+        start of each of its turns. If it fails, it wastes its action that turn doing nothing.
+        While the target is cursed, your attacks and spells deal an extra 1d8 necrotic damage
+        to the target. A remove curse spell ends this effect. At the GM’s option, you may
+        choose an alternative curse effect, but it should be no more powerful than those
+        described above. The GM has final say on such a curse’s effect.\n
+        At Higher Levels: If you cast this spell using a spell slot of 4th level or higher,
+        the Duration is Concentration, up to 10 minutes. If you use a spell slot of 5th level
+        or higher, the Duration is 8 hours. If you use a spell slot of 7th level or higher,
+        the Duration is 24 hours. If you use a 9th level spell slot, the spell lasts until
+        it is dispelled. Using a spell slot of 5th level or higher grants a Duration that
+        doesn't require""",
+        image_url='https://i.imgur.com/B5zPdZI.jpg',
+        level=3,
+        range='Touch',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='necromancy',
+        classes='bard,cleric,wizard'
+    )
+    spell027 = Spellcard(
+        name='Black Tentacles',
+        description="""Squirming, ebony tentacles fill a 20-foot square on ground that you
+        can see within range. For the duration, these tentacles turn the ground in the area
+        into difficult terrain.\n
+        When a creature enters the affected area for the first time on a turn or starts its
+        turn there, the creature must succeed on a Dexterity saving throw or take 3d6 bludgeoning
+        damage and be restrained by the tentacles until the spell ends. A creature that starts
+        its turn in the area and is already restrained by the tentacles takes 3d6 bludgeoning
+        damage.\n
+        A creature restrained by the tentacles can use its action to make a Strength or
+        Dexterity check (its choice) against your spell save DC. On a success, it frees
+        itself.""",
+        image_url='https://i.imgur.com/Q5mfQyT.jpg',
+        level=4,
+        range='90 feet',
+        verbal=True,
+        somatic=True,
+        material="A piece of tentacle from a giant octopus or a giant squid",
+        ritual=False,
+        duration='Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='conjuration',
+        classes='wizard'
+    )
+    spell028 = Spellcard(
+        name='Blade Barrier',
+        description="""You create a vertical wall of whirling, razor-sharp blades made of
+        magical energy. The wall appears within range and lasts for the duration. You can
+        make a straight wall up to 100 feet long, 20 feet high, and 5 feet thick, or a ringed
+        wall up to 60 feet in diameter, 20 feet high, and 5 feet thick. The wall provides
+        three-quarters cover to creatures behind it, and its space is difficult terrain.\n
+        When a creature enters the wall’s area for the first time on a turn or starts its
+        turn there, the creature must make a Dexterity saving throw. On a failed save, the
+        creature takes 6d10 slashing damage. On a successful save, the creature takes half
+        as much damage.""",
+        image_url='https://i.imgur.com/32tLmkQ.jpg',
+        level=6,
+        range='90 feet',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='Up to 10 minutes',
+        concentration=True,
+        casting_time='8 hours',
+        school='evocation',
+        classes='cleric'
+    )
+    spell029 = Spellcard(
+        name='Bless',
+        description="""You bless up to three creatures of your choice within range. Whenever
+        a target makes an attack roll or a saving throw before the spell ends, the target can
+        roll a d4 and add the number rolled to the attack roll or saving throw.\n
+        At Higher Levels: When you cast this spell using a spell slot of 2nd level or higher,
+        you can target one additional creature for each slot level above 1st.""",
+        image_url='https://i.imgur.com/pM9dasx.jpg',
+        level=1,
+        range='30 feet',
+        verbal=True,
+        somatic=True,
+        material="A sprinkling of holy water",
+        ritual=False,
+        duration='Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='enchantment',
+        classes='cleric,paladin'
+    )
+    spell030 = Spellcard(
+        name='Blight',
+        description="""Necromantic energy washes over a creature of your choice that you can
+        see within range, draining moisture and vitality from it. The target must make a
+        Constitution saving throw. The target takes 8d8 necrotic damage on a failed save, or
+        half as much damage on a successful one. This spell has no effect on undead or
+        constructs. If you target a plant creature or a magical plant, it makes the saving
+        throw with disadvantage, and the spell deals maximum damage to it. If you target a
+        nonmagical plant that isn’t a creature, such as a tree or shrub, it doesn’t make a
+        saving throw; it simply withers and dies.\n
+        At Higher Levels: When you cast this spell using a spell slot of 5th level or higher,
+        the damage increases by 1d8 for each slot level above 4th.""",
+        image_url='https://i.imgur.com/B5zPdZI.jpg',
+        level=4,
+        range='30 feet',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='Instantaneous',
+        concentration=False,
+        casting_time='1 action',
+        school='necromancy',
+        classes='druid,sorcerer,warlock,wizard'
+    )
+    spell031 = Spellcard(
+        name='Blindness Deafness',
+        description="""You can blind or deafen a foe. Choose one creature that you can see
+        within range to make a Constitution saving throw. If it fails, the target is either
+        blinded or deafened (your choice) for the duration. At the end of each of its turns,
+        the target can make a Constitution saving throw. On a success, the spell ends.\n
+        At Higher Levels: When you cast this spell using a spell slot of 3rd level or higher,
+        you can target one additional creature for each slot level above 2nd.""",
+        image_url='https://i.imgur.com/B5zPdZI.jpg',
+        level=2,
+        range='30 feet',
+        verbal=True,
+        somatic=False,
+        material="",
+        ritual=False,
+        duration='1 minute',
+        concentration=False,
+        casting_time='1 action',
+        school='necromancy',
+        classes='bard,cleric,sorcerer,wizard'
+    )
+    spell032 = Spellcard(
+        name='Blink',
+        description="""Roll a d20 at the end of each of your turns for the duration of
+        the spell. On a roll of 11 or higher, you vanish from your current plane of
+        existence and appear in the Ethereal Plane (the spell fails and the casting is
+        wasted if you were already on that plane). At the start of your next turn, and
+        when the spell ends if you are on the Ethereal Plane, you return to an unoccupied
+        space of your choice that you can see within 10 feet of the space you vanished
+        from. If no unoccupied space is available within that range, you appear in the
+        nearest unoccupied space (chosen at random if more than one space is equally
+        near). You can dismiss this spell as an action.\n
+        While on the Ethereal Plane, you can see and hear the plane you originated from,
+        which is cast in shades of gray, and you can’t see anything there more than 60
+        feet away. You can only affect and be affected by other creatures on the Ethereal
+        Plane. Creatures that aren’t there can’t perceive you or interact with you,
+        unless they have the ability to do so.""",
+        image_url='https://i.imgur.com/zC3rsjS.jpg',
+        level=3,
+        range='Self',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='1 minute',
+        concentration=False,
+        casting_time='1 action',
+        school='transmutation',
+        classes='sorcerer,wizard'
+    )
+    spell033 = Spellcard(
+        name='Blur',
+        description="""Your body becomes blurred, shifting and wavering to all who can
+        see you. For the duration, any creature has disadvantage on attack rolls against
+        you. An attacker is immune to this effect if it doesn’t rely on sight, as with
+        blindsight, or can see through illusions, as with truesight.""",
+        image_url='https://i.imgur.com/d7xP8Lx.jpg',
+        level=2,
+        range='Self',
+        verbal=True,
+        somatic=False,
+        material="",
+        ritual=False,
+        duration='Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='illusion',
+        classes='sorcerer,wizard'
+    )
+    spell034 = Spellcard(
+        name='Branding Smite',
+        description="""The next time you hit a creature with a weapon attack before this
+        spell ends, the weapon gleams with astral radiance as you strike. The attack deals
+        an extra 2d6 radiant damage to the target, which becomes visible if it's invisible,
+        and the target sheds dim light in a 5-foot radius and can't become invisible until
+        the spell ends.\n
+        At Higher Levels: When you cast this spell using a spell slot of 3rd level or higher,
+        the extra damage increases by 1d6 for each slot level above 2nd.""",
+        image_url='https://i.imgur.com/32tLmkQ.jpg',
+        level=2,
+        range='Self',
+        verbal=True,
+        somatic=False,
+        material="",
+        ritual=False,
+        duration='Up to 1 minute',
+        concentration=True,
+        casting_time='1 bonus action',
+        school='evocation',
+        classes=''
+    )
+    spell035 = Spellcard(
+        name='Burning Hands',
+        description="""As you hold your hands with thumbs touching and fingers spread, a
+        thin sheet of flames shoots forth from your outstretched fingertips. Each creature
+        in a 15-foot cone must make a Dexterity saving throw. A creature takes 3d6 fire
+        damage on a failed save, or half as much damage on a successful one. The fire ignites
+        any flammable objects in the area that aren’t being worn or carried.\n
+        At Higher Levels: When you cast this spell using a spell slot of 2nd level or higher,
+        the damage increases by 1d6 for each slot level above 1st.""",
+        image_url='https://i.imgur.com/32tLmkQ.jpg',
+        level=1,
+        range='Self (15-foot cone)',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='Instantaneous',
+        concentration=False,
+        casting_time='1 action',
+        school='evocation',
+        classes='sorcerer,wizard'
+    )
+    spell036 = Spellcard(
+        name='Call Lightning',
+        description="""A storm cloud appears in the shape of a cylinder that is 10 feet tall
+        with a 60-foot radius, centered on a point you can see 100 feet directly above you.
+        The spell fails if you can’t see a point in the air where the storm cloud could appear
+        (for example, if you are in a room that can’t accommodate the cloud). When you cast
+        the spell, choose a point you can see within range. A bolt of lightning flashes down
+        from the cloud to that point. Each creature within 5 feet of that point must make a
+        Dexterity saving throw. A creature takes 3d10 lightning damage on a failed save, or
+        half as much damage on a successful one. On each of your turns until the spell ends,
+        you can use your action to call down lightning in this way again, targeting the same
+        point or a different one. If you are outdoors in stormy conditions when you cast this
+        spell, the spell gives you control over the existing storm instead of creating a new
+        one. Under such conditions, the spell’s damage increases by 1d10.\n
+        At Higher Levels: When you cast this spell using a spell slot of 4th level or higher
+        level, the damage increases by 1d10 for each slot level above 3rd.""",
+        image_url='https://i.imgur.com/Q5mfQyT.jpg',
+        level=3,
+        range='120 feet',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='Up to 10 minutes',
+        concentration=True,
+        casting_time='1 action',
+        school='conjuration',
+        classes='druid'
+    )
+    spell037 = Spellcard(
+        name='Calm Emotions',
+        description="""You attempt to suppress strong emotions in a group of people. Each
+        humanoid in a 20-foot-radius sphere centered on a point you choose within range must
+        make a Charisma saving throw; a creature can choose to fail this saving throw if it
+        wishes. If a creature fails its saving throw, choose one of the following two effects.\n
+        You can suppress any effect causing a target to be charmed or frightened. When this
+        spell ends, any suppressed effect resumes, provided that its duration has not expired
+        in the meantime.\n
+        Alternatively, you can make a target indifferent about creatures of your choice that
+        it is hostile toward. This indifference ends if the target is attacked or harmed by a
+        spell or if it witnesses any of its friends being harmed. When the spell ends, the
+        creature becomes hostile again, unless the GM rules otherwise.""",
+        image_url='https://i.imgur.com/pM9dasx.jpg',
+        level=2,
+        range='60 feet',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='Up to 1 minute',
+        concentration=True,
+        casting_time='1 action',
+        school='enchantment',
+        classes='bard,cleric'
+    )
+    spell038 = Spellcard(
+        name='Chain Lightning',
+        description="""You create a bolt of lightning that arcs toward a target of your choice
+        that you can see within range. Three bolts then leap from that target to as many as three
+        other targets, each of which must be within 30 feet of the first target. A target can
+        be a creature or an object and can be targeted by only one of the bolts. A target must
+        make a Dexterity saving throw. The target takes 10d8 lightning damage on a failed save,
+        or half as much damage on a successful one.\n
+        At Higher Levels: When you cast this spell using a spell slot of 7th level or higher,
+        one additional bolt leaps from the first target to another target for each slot level
+        above 6th.""",
+        image_url='https://i.imgur.com/32tLmkQ.jpg',
+        level=6,
+        range='150 feet',
+        verbal=True,
+        somatic=True,
+        material="A bit of fur; a piece of amber, glass, or a crystal rod; and three silver pins",
+        ritual=False,
+        duration='Instantaneous',
+        concentration=False,
+        casting_time='',
+        school='',
+        classes=''
+    )
+    spell039 = Spellcard(
+        name='Blindness Deafness',
+        description="""""",
+        image_url='https://i.imgur.com/',
+        level=2,
+        range='',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='',
+        concentration=False,
+        casting_time='',
+        school='',
+        classes=''
+    )
+    spell040 = Spellcard(
+        name='Blindness Deafness',
+        description="""""",
+        image_url='https://i.imgur.com/',
+        level=2,
+        range='',
+        verbal=True,
+        somatic=True,
+        material="",
+        ritual=False,
+        duration='',
+        concentration=False,
+        casting_time='',
+        school='',
+        classes=''
+    )
 
 
 
@@ -706,6 +1143,16 @@ def seed_basic_spellcards():
     db.session.add(spell019)
     db.session.add(spell020)
     db.session.add(spell021)
+    db.session.add(spell022)
+    db.session.add(spell023)
+    db.session.add(spell024)
+    db.session.add(spell025)
+    db.session.add(spell026)
+    db.session.add(spell027)
+    db.session.add(spell028)
+    db.session.add(spell029)
+    db.session.add(spell030)
+    db.session.add(spell031)
 
     db.session.add(spell363)
 
