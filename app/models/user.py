@@ -47,3 +47,14 @@ class User(db.Model, UserMixin):
             'decks': [deck.to_dict() for deck in self.decks],
             'spellcards': [spellcard.to_dict() for spellcard in self.spellcards],
         }
+
+    def to_dict_friends(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+            'profile_image_url': self.profile_image_url,
+            'decks': [deck.to_dict() for deck in self.decks],
+            'spellcards': [spellcard.to_dict() for spellcard in self.spellcards],
+            'friends': [user.to_dict() for user in self.friends],
+        }
