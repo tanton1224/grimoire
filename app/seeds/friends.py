@@ -1,14 +1,31 @@
-from app.models import db, User
+from app.models import db, Friend
 
 
 def seed_friends():
-    demo = User.query.filter(User.username == 'Demo').first()
-    marnie = User.query.filter(User.username =='marnie').first()
-    bobbie = User.query.filter(User.username == 'bobbie').first()
+    demo_to_marnie = Friend(
+        from_user_id=1,
+        to_user_id=2,
+        accepted=True
+    )
+    bobbie_to_marnie = Friend(
+        from_user_id=3,
+        to_user_id=2,
+        accepted=False
+    )
+    bobbie_to_demo = Friend(
+        from_user_id=3,
+        to_user_id=1,
+        accepted=True
+    )
+    drew_to_demo = Friend(
+        from_user_id=4,
+        to_user_id=1,
+        accepted=False
+    )
 
-    demo.friends.append(marnie)
-    demo.friends.append(bobbie)
-    marnie.friends.append(demo)
-    bobbie.friends.append(bobbie)
+    db.session.add(demo_to_marnie)
+    db.session.add(bobbie_to_demo)
+    db.session.add(bobbie_to_marnie)
+    db.session.add(drew_to_demo)
 
     db.session.commit()

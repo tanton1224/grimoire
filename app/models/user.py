@@ -3,13 +3,39 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-friend_connections = db.Table(
-    "friend_connections",
-    db.Model.metadata,
-    db.Column("from_user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
-    db.Column("to_user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
-    db.Column("accepted", db.Boolean, default=False)
-)
+# friend_connections = db.Table(
+#     "friend_connections",
+#     db.Model.metadata,
+#     db.Column("from_user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
+#     db.Column("to_user_id", db.Integer, db.ForeignKey("users.id"), primary_key=True),
+#     db.Column("accepted", db.Boolean, default=False)
+# )
+
+class Friend(db.Model):
+    __tablename__ = 'friends'
+
+    id = db.Column(db.Integer, primary_key=True)
+    from_user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    to_user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    accepted = db.Column(db.Boolean, default=False)
+
+    from_user = db.relationship('User',
+                                foreign_keys=[from_user_id],
+                                back_populates='sender'
+                                )
+    to_user = db.relationship('User',
+                                foreign_keys=[to_user_id],
+                                back_populates='recipient'
+                                )
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'from_user_id': self.from_user_id,
+            'to_user_id': self.to_user_id,
+            'accepted': self.accepted
+        }
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -22,10 +48,22 @@ class User(db.Model, UserMixin):
 
     decks = db.relationship('Deck', back_populates='user')
     spellcards = db.relationship('Spellcard', back_populates='user')
-    friends = db.relationship("User", secondary=friend_connections,
-                           primaryjoin=id==friend_connections.c.from_user_id,
-                           secondaryjoin=id==friend_connections.c.to_user_id,
-    )
+    # friends = db.relationship("User", secondary='friends',
+    #                        primaryjoin = (id == friend_connections.c.from_user_id),
+    #                        secondaryjoin = id == friend_connections.c.to_user_id,
+    # )
+    sender = db.relationship('Friend',
+                            foreign_keys="[Friend.from_user_id]",
+                            back_populates="from_user",
+                            cascade="all, delete-orphan",
+                            passive_deletes=True
+                            )
+    recipient = db.relationship('Friend',
+                            foreign_keys="[Friend.to_user_id]",
+                            back_populates="to_user",
+                            cascade="all, delete-orphan",
+                            passive_deletes=True
+                            )
 
     @property
     def password(self):
@@ -46,6 +84,7 @@ class User(db.Model, UserMixin):
             'profile_image_url': self.profile_image_url,
             'decks': [deck.to_dict() for deck in self.decks],
             'spellcards': [spellcard.to_dict() for spellcard in self.spellcards],
+            'friends': [friend.to_dict() for friend in self.sender] + [friend.to_dict() for friend in self.recipient]
         }
 
     def to_dict_friends(self):
@@ -56,5 +95,5 @@ class User(db.Model, UserMixin):
             'profile_image_url': self.profile_image_url,
             'decks': [deck.to_dict() for deck in self.decks],
             'spellcards': [spellcard.to_dict() for spellcard in self.spellcards],
-            'friends': [user.to_dict() for user in self.friends],
+            # 'friends': [user.to_dict() for user in self.friends],
         }
