@@ -57,7 +57,6 @@ export const updateCardThunk = (payload, spellcardId) => async dispatch => {
 
     if (res.ok) {
         const spell = await res.json()
-        console.log(spell, "-- -- -- spell -- -- --")
         dispatch(updateSpell(spell))
         return spell
     }

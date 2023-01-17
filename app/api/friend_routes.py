@@ -1,18 +1,25 @@
 from flask import Blueprint, request
 from app.models import db, Friend, User, friend_connection
-from ..forms import SpellcardForm
+from ..forms import FriendForm
 from flask_login import current_user, login_required
 
 friend_routes = Blueprint("friends", __name__, url_prefix="/friends")
 
 
-@friend_routes.route("/user/<user_id>/friend/<friend_id>", methods=['PUT'])
+@friend_routes.route("/<friend_id>", methods=['PUT'])
 @login_required
-def accept_friend(user_id, friend_id):
-    user = User.query.get(user_id)
-    friend = User.query.get(friend_id)
+def update_friend(friend_id):
+    friend = Friend.query.get(friend_id)
 
-    user.friends.append(friend)
-    db.session.commit()
+    if not friend:
+        raise ReferenceError("404: Deck could not be found")
 
-    return user.to_dict_friends()
+    if friend.user_id != current_user.id:
+        raise AssertionError("Unauthorized: This isn't your deck to edit")
+
+    return user.to_dict()
+
+
+@friend_routes.route("/", methods=['POST'])
+@login_required
+def create_request():

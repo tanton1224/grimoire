@@ -15,13 +15,4 @@ def get_user_info(user_id):
     return user.to_dict()
 
 
-@profile_routes.route("/<user_id>/friend/<friend_id>", methods=['PUT'])
-@login_required
-def accept_friend(user_id, friend_id):
-    user = User.query.get(user_id)
-    friend = User.query.get(friend_id)
 
-    user.friends.append(friend)
-    db.session.commit()
-
-    return user.to_dict()

@@ -17,7 +17,7 @@ const SignUpForm = () => {
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
-      .match(
+      .match( 
         /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
       );
   };

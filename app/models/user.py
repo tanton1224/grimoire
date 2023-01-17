@@ -1,5 +1,5 @@
 from email.policy import default
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -13,10 +13,12 @@ from flask_login import UserMixin
 
 class Friend(db.Model):
     __tablename__ = 'friends'
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    from_user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    to_user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    from_user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    to_user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     accepted = db.Column(db.Boolean, default=False)
 
     from_user = db.relationship('User',
@@ -85,15 +87,4 @@ class User(db.Model, UserMixin):
             'decks': [deck.to_dict() for deck in self.decks],
             'spellcards': [spellcard.to_dict() for spellcard in self.spellcards],
             'friends': [friend.to_dict() for friend in self.sender] + [friend.to_dict() for friend in self.recipient]
-        }
-
-    def to_dict_friends(self):
-        return {
-            'id': self.id,
-            'username': self.username,
-            'email': self.email,
-            'profile_image_url': self.profile_image_url,
-            'decks': [deck.to_dict() for deck in self.decks],
-            'spellcards': [spellcard.to_dict() for spellcard in self.spellcards],
-            # 'friends': [user.to_dict() for user in self.friends],
         }
