@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
 import { useEffect, useState } from "react";
-import { createCardThunk, getSpellsThunk, updateCardThunk } from "../../store/spellcards";
+import { getSpellsThunk, updateCardThunk } from "../../store/spellcards";
 import EncyclopediaCard from "../Encyclopedia/EncyclopediaCard";
 import './EditSpellcard.css'
 
@@ -190,9 +190,6 @@ function EditSpellcard({ onClick, spell }) {
 
     }
 
-    const toTitleCase = (string) => {
-        return string[0].toUpperCase() + string.slice(1).toLowerCase()
-    }
 
     return (
         <div className="create-spellcard-container">

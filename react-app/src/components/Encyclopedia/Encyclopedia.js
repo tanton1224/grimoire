@@ -21,6 +21,7 @@ function Encyclopedia() {
     const filteredSpells = spellcards?.filter(spell => {
         if (query === '') return spell;
         else if (spell.name.toLowerCase().includes(query.toLowerCase())) return spell;
+        return;
     })
 
     return (

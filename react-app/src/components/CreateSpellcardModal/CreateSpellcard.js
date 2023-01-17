@@ -194,10 +194,6 @@ function CreateSpellcard({ onClick }) {
 
     }
 
-    const toTitleCase = (string) => {
-        return string[0].toUpperCase() + string.slice(1).toLowerCase()
-    }
-
     return (
         <div className="create-spellcard-container">
             <form className="create-spellcard-form" onSubmit={handleSubmit} >
