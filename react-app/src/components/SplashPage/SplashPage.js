@@ -5,14 +5,14 @@ function SplashPage() {
     return (
         <div className="splash-container">
             <div className="splash-header-container">
-                <h1>Welcome to <span className='title-font'>Grimoire</span><span style={{"font-family": "Gothic G Regular", "font-size": "40px"}}>!</span></h1>
+                <h1>Welcome to <span className='title-font'>Grimoire</span><span style={{"fontFamily": "Gothic G Regular", "fontSize": "40px"}}>!</span></h1>
                 <div className='splash-description'>Grimoire is a deck-building application for any DnD player or GM to organize their characters' spell lists!</div>
             </div>
             <div className='showcase-features-container'>
                 <div className='showcase-features-title'>Current Features:</div>
                 <div className='feature-images-container'>
-                    <img className="feature-image" src="https://static.thenounproject.com/png/20461-200.png" />
-                    <img className="feature-image" src="https://static.thenounproject.com/png/4767-200.png" />
+                    <img className="feature-image" alt="decks" src="https://static.thenounproject.com/png/20461-200.png" />
+                    <img className="feature-image" alt="spellcards" src="https://static.thenounproject.com/png/4767-200.png" />
                 </div>
                 <div className='feature-desc-container'>
                     <ul>Decks

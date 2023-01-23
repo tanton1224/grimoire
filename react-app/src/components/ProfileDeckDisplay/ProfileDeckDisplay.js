@@ -5,7 +5,6 @@ import { getSpellsThunk } from "../../store/spellcards";
 import RemoveCardModal from "../RemoveCardModal";
 import AddCardField from "../AddCardField/AddCardField";
 import './ProfileDeckDisplay.css'
-import DeleteDeckModal from "../DeleteDeckModal";
 import { useHistory } from "react-router-dom";
 import EncyclopediaCard from "../Encyclopedia/EncyclopediaCard";
 
@@ -32,16 +31,13 @@ function ProfileDeckDisplay() {
         if (!user) {
             history.push('/')
         }
-    }, [user])
+    }, [user, history])
 
     useEffect(() => {
         dispatch(getDecksThunk())
         dispatch(getSpellsThunk())
     }, [dispatch])
 
-    const toTitleCase = (string) => {
-        return string[0].toUpperCase() + string.slice(1).toLowerCase()
-    }
 
     const userHasDecks = (decks, user) => {
         let hasDecks = false
@@ -56,6 +52,7 @@ function ProfileDeckDisplay() {
     const filteredDecks = decks.filter(deck => {
         if (query === '') return deck;
         else if (deck.name.toLowerCase().includes(query.toLowerCase())) return deck;
+        return null;
     })
 
     return (

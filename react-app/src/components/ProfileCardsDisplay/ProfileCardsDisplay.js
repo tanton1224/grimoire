@@ -29,14 +29,12 @@ function ProfileCardsDisplay() {
         dispatch(getSpellsThunk())
     }, [dispatch])
 
-    const toTitleCase = (string) => {
-        return string[0].toUpperCase() + string.slice(1).toLowerCase()
-    }
-
     const filteredCards = cards.filter(card => {
         if (query === '') return card;
         else if (card.name.toLowerCase().includes(query.toLowerCase())) return card;
+        return null
     })
+
 
     return (
         <div className="profile-cards-display">

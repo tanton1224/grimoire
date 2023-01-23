@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
 import { Modal } from '../../context/Modal'
 import RemoveCard from './RemoveCard'
 import './RemoveCard.css'
 
-function RemoveCardModal({ deck, spell, index }) {
+function RemoveCardModal({ deck, index }) {
     const [showModal, setShowModal] = useState(false)
 
     return (

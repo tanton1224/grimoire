@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateDeckThunk } from "../../store/decks";
 import DeleteDeckModal from "../DeleteDeckModal";
@@ -8,7 +7,6 @@ import './AddCardField.css'
 
 function AddCardField({ deck }) {
     const dispatch = useDispatch();
-    const history = useHistory();
     const basic = useSelector(state => state.spellcards?.encyclopedia);
     const homebrew = useSelector(state => state.spellcards?.homebrew);
     const [ showDropdown, setShowDropdown ] = useState(false);
