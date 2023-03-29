@@ -1,7 +1,10 @@
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Spellcard(db.Model):
     __tablename__ = 'spellcards'
+
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
@@ -19,7 +22,7 @@ class Spellcard(db.Model):
     school = db.Column(db.String, nullable=False)
     classes = db.Column(db.String, nullable=False)
     homebrew = db.Column(db.Boolean, default=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=True)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=True)
 
     user = db.relationship('User', back_populates='spellcards')
 

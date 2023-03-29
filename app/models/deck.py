@@ -1,11 +1,14 @@
 from app.models import spellcard
-from .db import db
+from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Deck(db.Model):
     __tablename__ = 'decks'
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     name = db.Column(db.String, nullable=False)
     spellcards = db.Column(db.String)
 
