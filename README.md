@@ -9,13 +9,10 @@ Grimoire is a website built for DnD Players and Game Masters to create decks of 
 
 ## Tech Stack
 ### Frameworks, Platforms, and Libraries:
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
-### Database:
-![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
-
-### Hosting:
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+### Database & ORM:
+![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
 
 ## Home Page
 ![image](https://user-images.githubusercontent.com/101833447/189538086-65bb4000-9a53-4605-a2ac-fcd2a5a9a4b1.png)
@@ -38,15 +35,18 @@ Grimoire is a website built for DnD Players and Game Masters to create decks of 
 
 ## Run Locally
 * Clone the repo
-* Open up two terminals, one for backend and frontend
-* In the first terminal, at the root, run ```pipenv install``` to install dependencies in the pipenv environment, then run ```pipenv run flask run```.
-* In the second terminal, cd into the ```react-app``` directory. Run ```npm install``` to install dependencies, then run ```npm start``` to open the front end.
+* Install dependencies: `npm install`
+* Copy `.env.local.example` to `.env.local` and fill in the values
+* Run the database migration and seed: `npx prisma migrate dev && npx prisma db seed`
+* Start the dev server: `npm run dev`
+* Open [http://localhost:3000](http://localhost:3000)
 
 ## Environment Variables
-To run this project, you need to add the following environment variables to your root directory in a .env file:
+Copy `.env.local.example` to `.env.local` and set the following:
 ```
-DATABASE_URL=<<insert_database_url>>
-SECRET_KEY=<<generate_strong_secret_key>>
+DATABASE_URL=file:./dev.db
+AUTH_SECRET=<generate a strong random secret>
+NEXTAUTH_URL=http://localhost:3000
 ```
 
 ## To-do List
