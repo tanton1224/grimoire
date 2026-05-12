@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              Int         @id @default(autoincrement())
+  username        String      @unique
+  email           String      @unique
+  hashedPassword  String
+  profileImageUrl String?
+  spellcards      Spellcard[]
+  decks           Deck[]
+}
+
+model Spellcard {
+  id            Int     @id @default(autoincrement())
+  name          String
+  description   String
+  imageUrl      String
+  level         Int
+  range         String
+  verbal        Boolean @default(false)
+  somatic       Boolean @default(false)
+  material      String  @default("")
+  ritual        Boolean @default(false)
+  duration      String
+  concentration Boolean @default(false)
+  castingTime   String
+  school        String
+  classes       String
+  homebrew      Boolean @default(false)
+  userId        Int?
+  user          User?   @relation(fields: [userId], references: [id])
+}
+
+model Deck {
+  id         Int    @id @default(autoincrement())
+  userId     Int
+  name       String
+  spellcards String @default("")
+  user       User   @relation(fields: [userId], references: [id])
+}
